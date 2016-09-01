@@ -5,7 +5,7 @@ Welcome to #MobileProto!
 
 ### Description
 
-Mobile Prototyping is a class where you learn to developing android applications. In this course, you will learn the fundamentals of Java, how to design the architecture for an Android application, and how to implement your designs.
+Mobile Prototyping is a class where you learn to developing android applications. In this course, you will learn the fundamentals of Java, how to design the architecture for an Android application, and how to implement your designs. You will also become effective team-oriented developers.
 
 ### Teaching Team + NINJAs
 
@@ -16,7 +16,7 @@ Your teachers are Bill Wong, David Abrahams, Nora Mohamed, and Shruti Iyer, with
 **Students will improve their abilities to …**
 
 * Develop Android code with others in mind. Their code will be well documented and readable so that other developers can understand and add onto it, and their apps will be made considering other stakeholders.
-* Work effectively in a team on an Android coding project by having good git workflow (simultaneously integrating and iterating), and dividing work fairly.
+* Work effectively in a team by having good git workflow (simultaneously integrating and iterating), and dividing work fairly.
 * Use and find good internet resources and documentation to teach themselves how to write Android software. 
 * Plan out the high level architecture of an Android coding project, including class structure and hierarchy and information flow. 
 * Improve upon their work based on previous feedback from their peers and themselves.
@@ -39,21 +39,27 @@ Homework assignment that are submitted late will lose 50% of the total value of 
 
 The reason for this policy is twofold: We want to consistently and quickly give you feedback on your work so that you can incorporate it into future assignments. We also don’t want anyone falling behind.
 
-**Labs and the final project will not be accepted after their due dates if you do not speak with the teaching team.** If you are having trouble with a lab/project, come to us sooner rather than later. We will grant extensions as long as you communicate with the teaching team.
+**Labs and the final project will not be accepted after their due dates if you do not speak with the teaching team.** If you are having trouble with a lab/project, come to us sooner rather than later. We will grant extensions as long as you communicate with us.
 
 ### Honor Code
 
-You will be expected to follow the Honor Code while doing work for this class.  If you copy some of your code from StackOverflow or other source, leave a comment in your code linking to the original source. Alongside this code, leave comments that make it clear you understand what you copied. This can be done with either a paragraph or inline comments, whichever you prefer.
-## Grading
+You will be expected to follow the Honor Code while doing work for this class.  If you copy some of your code from StackOverflow or another source, leave a comment in your code linking to the original source. Alongside this code, leave comments that make it clear you understand what you copied. This can be done with either a paragraph or inline comments, whichever you prefer.
+
+## Course Structure
+
+We will begin the semester with a series of lessons and corresponding homeworks. We will then transition to a set of two labs, each spanning two weeks. The rest of the semester will be spent on the final project.
+
+### Grading
+
 If you want to know your current grade in the class, ask us and we’ll let you know.
-### Tentative Points
 
 * 20 points -- homework 0
 * 500 points -- 10 homeworks
 * 400 points -- 2 labs
 * 550 points -- final project
+* 30 points -- To Be Announced
 
-Total points: 1470
+Total points: 1500
 
 **Point values/totals subject to change**
 
@@ -70,30 +76,32 @@ Grade Scale:
 * 68%: D+
 * 60%: D
 
+This will be the rubric we will be using for your homework assignments:
+
 ### Coding Assignment grading system (50 points total):
 
-##### Functionality: 30 points
+#### Functionality: 30 points
 
-###### Completion: 20 points
+##### Completion: 20 points
 
 * 20 - You implemented all of the required features in the assignment. The assignment is complete
 * 10 - Some or most of the required features were implemented.
 * 0 - Less than half of the desired features were implemented.
 
-###### Bug free: 10 points
+##### Bug free: 10 points
 
 * 10 - The app is bug free
 * 0 - Your app has one or more bugs, causing unexpected behavior.
 
-##### Quality: 20 points
+#### Quality: 20 points
 
-###### Good coding practices: 10 pts
+##### Good coding practices: 10 pts
 
 * 10 - Objects are intelligently designed and used where appropriate, inheritance used when appropriate, code is concise, naming conventions followed, proper access modifiers are used, public getters/setters are used instead of public variables, etc.
 * 5 - Some of the above practices were broken, but you mostly followed good practices.
 * 0 - Good coding practices were consistently broken.
 
-###### Readability: 10 pts
+##### Readability: 10 pts
 * 10 - Functions and variables are named well. Code is well commented where appropriate. Confusing lines are commented. Lines are not too long.
 * 5 - Code is occasionally confusing. Could use more comments. Some variables are poorly named.
 * 0 - Code is difficult to read. Other developers would not be able to use your code.
