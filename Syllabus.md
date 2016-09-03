@@ -26,7 +26,9 @@ Your teachers are Bill Wong, David Abrahams, Nora Mohamed, and Shruti Iyer, with
 This is class is a **4 credit Independent Study** (IS) in engineering. Note that it does not fulfill your OSS requirement.
 
 ### Office Hours
-**Hours TBD.** We will send out a survey.
+Office Hours will be 8-10pm Sunday and Wednesday (the nights before assignments are due):
+ - **Sun:** 8-9 Hieu + Patrick, 9-10 Nora + Deniz
+ - **Wed:** 8-9 David + Shruti, 9-10 Bill
 
 If you need help, check out our Slack channel, [#mobileproto](https://olin.slack.com/messages/mobileproto/). We advise using it over emailing us when you have code questions (but emailing us is great too). Other people might have the same questions, so using the Slack channel can help them out too.
 
