@@ -27,8 +27,8 @@ This is class is a **4 credit Independent Study** (IS) in engineering. Note that
 
 ### Office Hours
 Office Hours will be 8-10pm Sunday and Wednesday (the nights before assignments are due):
- - **Sun:** 8-9 Hieu + Patrick, 9-10 Nora + Deniz
- - **Wed:** 8-9 David + Shruti, 9-10 Bill
+ - **Sun:** 8-9pm Hieu + Patrick, 9-10pm Nora + Deniz
+ - **Wed:** 8-9pm David + Shruti, 9-10pm Bill
 
 If you need help, check out our Slack channel, [#mobileproto](https://olin.slack.com/messages/mobileproto/). We advise using it over emailing us when you have code questions (but emailing us is great too). Other people might have the same questions, so using the Slack channel can help them out too.
 
