@@ -185,7 +185,7 @@ Don't worry too much yet about what all the words in `public static void main(St
 
 **[HW] Create two new classes, and copy paste the following boilerplates into them:**
 
-```
+```java
 public class MoneySaver {
 
     private long myMoney;
@@ -225,7 +225,7 @@ public class MoneySaver {
 
 ```
 
-```
+```java
 public class Account {
 
     private long amount;
@@ -259,7 +259,7 @@ You'll notice both classes also have fields. Fields are either attributes of mem
 
 **[HW] Add the following to your main method (`public static void main(String[] args)`) to test your code so far:**
 
-```
+```java
 Account a = new Account(100);
 System.out.println(a);
 a.setAmount(20);
@@ -281,7 +281,7 @@ These classes also have methods, which are things instances can "do". Each metho
 
 Test your code:
 
-```
+```java
 Account a = new Account(100);
 System.out.println(a);
 a.setAmount(20);
@@ -300,7 +300,7 @@ New amount: 30
 
 **[HW] Implement `largerAccount` in `Account`. Test your implementation!**
 
-```
+```java
 Account small = new Account(20);
 Account big = new Account(30);
 System.out.println(Account.largerAccount(small, big));
@@ -322,7 +322,7 @@ Account Balance: $30
 
 Finally, you are ready for your `MoneySaver` to be able to sign up for a checking account. **[HW] Implement `signUpForChecking`. This function should initialize `myAccount` to a new `CheckingAccount`, with a balance equal to the `amount` specified in the function's input. It should also subtract the amount from the `MoneySaver`'s `myMoney`. Test your implementation with the following code:**
 
-```
+```java
 MoneySaver david = new MoneySaver("David", 100);
 david.signUpForChecking(50);  // put 50 dollars in a checking account
 System.out.println(david);
@@ -338,7 +338,7 @@ Realize that you can store a `CheckingAccount` instance in `myAccount` without c
 
 Note that you can't do it the other way around. Try putting this code in your project:
 
-```
+```java
 CheckingAccount specific = new Account(100, new MoneySaver("Bill", -20)); // Incompatible types error
 ```
 
@@ -348,7 +348,7 @@ This is because `CheckingAccount` is the specific subclass, and `Account` is the
 
 **[HW] Test your code from this section:**
 
-```
+```java
 MoneySaver jim = new MoneySaver("Jim", 100);
 jim.signUpForChecking(30);
 CheckingAccount acc = (CheckingAccount) jim.getMyAccount();
@@ -377,7 +377,7 @@ The last thing we will learn about inheritance is the `abstract` keyword. The `a
 
 * You can now declare `abstract` methods. These methods have no body, but classes that extend them must define these methods. For example, let's say you had an abstract `Vehicle` class:
 
-```
+```java
 public abstract class Vehicle {
 
     int wheels;
@@ -398,7 +398,7 @@ This says that all classes `extend`ing `Vehicle` must implement `turnOn`. Why do
 
 Note that the `Car` and `Boat` classes would both have the inhereted method `getWheels()`, so you wouldn't have to implement it repetitively in each subclass. However, you cannot initialize instances of the `abstract` class. Using the above example:
 
-```
+```java
 public class Car extends Vehicle {
     public void turnOn() {
         ...
@@ -413,11 +413,71 @@ c.turnOn();
 
 **[HW] Make your `Account` class `abstract`. Confirm that you can't initalize it anymore.**
 
+You've reached the end of the `MoneySaver` portion of the assignment! **[HW] Test that the entire project works by creating a new class `MoneyTester` and confirming that its `main` method has the correct output:**
+
+```java
+public class MoneyTester {
+
+    public static void main(String[] args) {
+        Account a = new CheckingAccount(100);
+        System.out.println(a);
+        a.setAmount(20);
+        System.out.println("New amount: " + a.getAmount());
+
+        a = new CheckingAccount(100);
+        System.out.println(a);
+        a.setAmount(20);
+        a.deposit(10);
+        System.out.println("New amount: " + a.getAmount());
+
+        Account small = new CheckingAccount(20);
+        Account big = new CheckingAccount(30);
+        System.out.println(Account.largerAccount(small, big));
+
+        MoneySaver david = new MoneySaver("David", 100);
+        david.signUpForChecking(50);  // put 50 dollars in a checking account
+        System.out.println(david);
+        System.out.println(david.getMyAccount());
+
+        MoneySaver jim = new MoneySaver("Jim", 100);
+        jim.signUpForChecking(30);
+        CheckingAccount acc = (CheckingAccount) jim.getMyAccount();
+        System.out.println(jim);
+        System.out.println(acc);
+        jim.deposit(40);
+        System.out.println(jim);
+        System.out.println(acc);
+        jim.withdraw(60);
+        System.out.println(jim);
+        System.out.println(acc);
+    }
+
+}
+```
+
+Expected Output:
+
+```
+Checking Account Balance: $100
+New amount: 20
+Checking Account Balance: $100
+New amount: 30
+Checking Account Balance: $30
+David, My balance is: 50
+Checking Account Balance: $50
+Jim, My balance is: 70
+Checking Account Balance: $30
+Jim, My balance is: 30
+Checking Account Balance: $70
+Jim, My balance is: 90
+Checking Account Balance: $10
+```
+
 # The `Fraction` class
 
 **[HW] Create a new class called `Fraction`.**
 
-```
+```java
 public class Fraction {
 
     private int numerator;
@@ -436,7 +496,7 @@ public class Fraction {
 
 **[HW] Give your `Fraction` a `gcd` function, which returns the greatest common diviser of two integers. The function should have the following header:**
 
-```
+```java
 public static int gcd(int m, int n)
 ```
 
@@ -444,7 +504,7 @@ and should work if `n > m`, and vice-versa.
 
 There's a pretty sweet recursive algorithm for `gcd` called *Euclid's Algorithm* which states that the `gcd(a, b)` is:
 
-```
+```java
 // This function assumes a>b. Your's should not!
 function gcd(a, b)
     If b is 0:
@@ -467,7 +527,7 @@ Why does it make sense for `gcd` to be `static`? If you're not sure, ask a peer 
 
 **[HW] Create a new class called `FractionTester`. Copy-paste the following code into it. All the tests should pass:**
 
-```
+```java
 public class FractionTester {
 
     public void runTests() {
@@ -501,11 +561,64 @@ public class FractionTester {
 5. Define the `Animal` subclasses `Cat`, `Dog`, `Cow`. Each should have a constructor with input arguments `(name, color)`. If you're having trouble, check out [this](http://www.tutorialspoint.com/java/java_abstraction.htm) example. Have cats and dogs' weights be initalized randomly between 0-25, and cows 100-200.
 6. Make the `grow` method in `Cat` multiply its weight by 3, in `Dog` by 1.5, and in `Cow` by 5.
 7. Define a class `Farm`. A farm should have an `ArrayList` of `Animal`s.
-8. Define `getHeaviestAnimals()` in `Farm`, which returns a new (don't modify the underlying ArrayList) sorted ArrayList.
-9. Define `printCatNames()`, which prints each cat's name to a new line in the console.
-10. Define `averageLegs()`, which returns the average number of legs amongst the animals in the farm.
-11. Check if your methods are behaving like they are supposed to. Similar to the quick debugging "tests" we previously used, you should make instances of the classes and print the outcome of methods along with the expected outcome.
-12. To finish up this assignment, do some googling on what an `interface` in Java is. Put a comment at the top of your `Animal.java` file explaining what the difference between an `interface` and an `abstract class` is.
+8. Give the `Farm` class an `addAnimal` function.
+9. Define `getHeaviestAnimals()` in `Farm`, which returns a new (don't modify the underlying ArrayList) sorted ArrayList.
+10. Define `printCatNames()`, which prints each cat's name to a new line in the console.
+11. Define `averageLegs()`, which returns the average number of legs amongst the animals in the farm.
+12. Check if your methods are behaving like they are supposed to. Similar to the quick debugging "tests" we previously used, you should make instances of the classes and print the outcome of methods along with the expected outcome.
+13. To finish up this assignment, do some googling on what an `interface` in Java is. Explain in the google form the difference between an `interface` and an `abstract class`.
+
+In addition to the tests you have done, these are the tests we will use to check that you completed the assignment correctly. Run them and make sure your code works!
+
+```java
+Cat c = new Cat("Meowth", "black");
+Dog d = new Dog("Puppy", "brown");
+Cow cow = new Cow("Mooer", "white");
+System.out.println("Test 1 Passed: " + (c.getWeight() >= 0 && c.getWeight() <= 25));
+System.out.println("Test 2 Passed: " + (d.getWeight() >= 0 && d.getWeight() <= 25));
+System.out.println("Test 3 Passed: " + (cow.getWeight() >= 100 && cow.getWeight() <= 200));
+
+double old_weight_cat = c.getWeight();
+double old_weight_dog = d.getWeight();
+double old_weight_cow = cow.getWeight();
+c.grow();
+d.grow();
+cow.grow();
+System.out.println("Test 4 Passed: " + (c.getWeight() / old_weight_cat == 3));
+System.out.println("Test 5 Passed: " + (Math.abs(((float)(d.getWeight()) / old_weight_dog - 1.5)) < 0.01));
+System.out.println("Test 6 Passed: " + (cow.getWeight() / old_weight_cow == 5));
+
+Farm farm = new Farm();
+farm.addAnimal(c);
+farm.addAnimal(d);
+farm.addAnimal(cow);
+
+ArrayList<Animal> sorted = farm.getHeaviestAnimals();
+for(int i = 0; i < sorted.size() - 1; i++) {
+    System.out.println("Test " + (i + 7) + " Passed: " + (sorted.get(i).getWeight() > sorted.get(i + 1).getWeight()));
+}
+c.setLeg(7);  // lol 6 legged cat
+System.out.println("Test 9 Passed: " + (farm.averageLegs() == 5));
+
+System.out.println("Printing 'Meowth'...");
+farm.printCatNames();
+```
+
+```
+Test 1 Passed: true
+Test 2 Passed: true
+Test 3 Passed: true
+Test 4 Passed: true
+Test 5 Passed: true
+Test 6 Passed: true
+Test 7 Passed: true
+Test 8 Passed: true
+Test 9 Passed: true
+Printing 'Meowth'...
+Meowth
+```
+
+If you believe you correctly implemented the homework but your tests aren't passing, please talk to the teaching team so we can make sure the tests are correct.
 
 ## Assignment
 
