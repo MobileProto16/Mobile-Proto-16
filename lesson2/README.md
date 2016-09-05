@@ -77,7 +77,7 @@ The pull-request should now be mergeable on github.
 #### 6. .gitignore
 When you start collaborating on Android projects, you will start noticing how certain files from your Android project mess things up in other people's computers. There are some files that you never want to push to the repo. It can be hard to manually add certain files while keeping out others. .gitignore helps us here by never tracking any changes in that file. Usually, .gitignore contains certain extensions but it can also contain folders and specific filenames.
 
-Here is a .gitignore you can use for your Android projects:
+Here is a .gitignore you can use for your Android projects. Note that when you create a new project, Android Studio creates a `.gitignore` for you:
 
 ```
 # Built application files
@@ -228,11 +228,10 @@ public class MoneySaver {
 ```
 public class Account {
 
-    private MoneySaver owner;
     private long amount;
 
     public String toString() {
-        return "Account owner: " + owner.getName() + ", Account Balance: $" + amount;
+        return "Account Balance: $" + amount;
     }
 
     public static Account largerAccount(Account acc1, Account acc2) {
@@ -250,19 +249,18 @@ The constructor is a special method used to initialize instances of your class (
 
 Often, you will want to initialize your object with some values. In this case you must define your own constructor. You can even define multiple constructors, each with different arguments.
 
-**[HW] Go ahead and implement the `Account` constructor. It should have input arguments `long amount, MoneySaver owner`**
+**[HW] Go ahead and implement the `Account` constructor. It should have input arguments `long amount`**
 
 #### Fields
 
-You'll notice both classes also have fields. Fields are either attributes of members of a class (an `amount` describes an `Account`) or things that belong to the class (an `Account` has an `owner`). *Fields should almost exclusively be `private` unless you have a really good reason to make it `public`.* If you want an outside class to be able to access a field, you must create public getter/setter methods.
+You'll notice both classes also have fields. Fields are either attributes of members of a class (an `amount` describes an `Account`) or things that belong to the class (a `MoneySaver` has an `account`). *Fields should almost exclusively be `private` unless you have a really good reason to make it `public`.* If you want an outside class to be able to access a field, you must create public getter/setter methods.
 
 **[HW] Define and implement the `getAmount` and `setAmount` methods in `Account`. Make sure they have appropriate return types and input arguments.**
 
 **[HW] Add the following to your main method (`public static void main(String[] args)`) to test your code so far:**
 
 ```
-MoneySaver jim = new MoneySaver("Jim", 100);
-Account a = new Account(100, jim);
+Account a = new Account(100);
 System.out.println(a);
 a.setAmount(20);
 System.out.println("New amount: " + a.getAmount());
@@ -271,7 +269,7 @@ System.out.println("New amount: " + a.getAmount());
 Expected output:
 
 ```
-Account owner: Jim, Account Balance: $100
+Account Balance: $100
 New amount: 20
 ```
 
@@ -284,8 +282,7 @@ These classes also have methods, which are things instances can "do". Each metho
 Test your code:
 
 ```
-MoneySaver jim = new MoneySaver("Jim", 100);
-Account a = new Account(100, jim);
+Account a = new Account(100);
 System.out.println(a);
 a.setAmount(20);
 a.deposit(10);
@@ -293,7 +290,7 @@ System.out.println("New amount: " + a.getAmount());
 ```
 
 ```
-Account owner: Jim, Account Balance: $100
+Account Balance: $100
 New amount: 30
 ```
 
@@ -304,15 +301,13 @@ New amount: 30
 **[HW] Implement `largerAccount` in `Account`. Test your implementation!**
 
 ```
-MoneySaver jim = new MoneySaver("Jim", 100);
-MoneySaver bob = new MoneySaver("Bob", 200);
-Account small = new Account(20, jim);
-Account big = new Account(30, bob);
+Account small = new Account(20);
+Account big = new Account(30);
 System.out.println(Account.largerAccount(small, big));
 ```
 
 ```
-Account owner: Bob, Account Balance: $30
+Account Balance: $30
 ```
 
 #### Inheritance
@@ -321,9 +316,23 @@ Account owner: Bob, Account Balance: $30
 
 **[HW] Define a class `CheckingAccount` that `extends` from `Account`.** CheckingAccount now has all of the methods that `Account` does. **[HW] Give it a constructor with a similar signature to `Account`'s construtor.** If you need help implementing the constructor, check out [this](https://docs.oracle.com/javase/tutorial/java/IandI/super.html) website.
 
-**[HW] Give your `CheckingAccount` a `withdraw` method.** This function should properly update the account balance.
+**[HW] Read about overriding functions [here](http://www.tutorialspoint.com/java/java_overriding.htm). Then override the `toString()` method in `CheckingAccount` so that it returns something like: `"Checking Account Balance: $50"`**
 
-Finally, you are ready for your `MoneySaver` to be able to sign up for a checking account. **[HW] Implement `signUpForChecking`, ensuring you properly modify and initialize the `MoneySaver's` fields.**
+**[HW] Give your `CheckingAccount` a `withdraw` method.** This function should properly update the account balance. The return type should be `void`.
+
+Finally, you are ready for your `MoneySaver` to be able to sign up for a checking account. **[HW] Implement `signUpForChecking`. This function should initialize `myAccount` to a new `CheckingAccount`, with a balance equal to the `amount` specified in the function's input. It should also subtract the amount from the `MoneySaver`'s `myMoney`. Test your implementation with the following code:**
+
+```
+MoneySaver david = new MoneySaver("David", 100);
+david.signUpForChecking(50);  // put 50 dollars in a checking account
+System.out.println(david);
+System.out.println(david.getMyAccount());
+```
+
+```
+David, My balance is: 50
+Checking Account Balance: $50
+```
 
 Realize that you can store a `CheckingAccount` instance in `myAccount` without changing its type from `Account`! This is an example of *polymorphism*. Because a `CheckingAccount` *is an* `Account`, you can store `CheckingAccount`s in `Account`s.
 
@@ -347,6 +356,7 @@ System.out.println(jim);
 System.out.println(acc);
 jim.deposit(40);
 System.out.println(jim);
+System.out.println(acc);
 jim.withdraw(60);
 System.out.println(jim);
 System.out.println(acc);
@@ -354,10 +364,11 @@ System.out.println(acc);
 
 ```
 Jim, My balance is: 70
-Account owner: Jim, Account Balance: $30
+Checking Account Balance: $30
 Jim, My balance is: 30
+Checking Account Balance: $70
 Jim, My balance is: 90
-Account owner: Jim, Account Balance: $10
+Checking Account Balance: $10
 ```
 
 ##### Abstraction
