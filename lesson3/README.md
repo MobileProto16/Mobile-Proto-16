@@ -1,12 +1,12 @@
 # Lesson 3 - Android Basics
 ### Your first Android application!
-Today in class we'll walk you through making your first Android application. Found in the lesson2 folder is a copy of the application that we will create in class.
+Today in class we'll walk you through making your first Android application. Found in the lesson3 folder is a copy of the application that we will create in class.
 
 ## Create a Blank App
 To begin with, we'll create a default app and walk you through the different components.
 
 1. Create a new project in Android Studio
-2. Name it something akin to "Lesson2HW" and save it in your forked repo
+2. Name it something akin to "Lesson3HW" and save it in your forked repo
 3. Click "Basic Activity"
 4. Check "Use a Fragment"
 5. Click done
