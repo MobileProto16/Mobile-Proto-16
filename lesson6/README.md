@@ -30,7 +30,7 @@ Once you have a Minimum Viable Product (MVP) of your app, test again. But this t
 ## App Elements
 
 #### Layouts
-While writing the XML files for your app, you might have noticed there are numerous ways to layout and display the content. [This](https://developer.android.com/guide/topics/ui/declaring-layout.html) document explains Layouts really well and talks about margins, padding, . Go read it!
+While writing the XML files for your app, you might have noticed there are numerous ways to layout and display the content. [This](https://developer.android.com/guide/topics/ui/declaring-layout.html) document explains layouts really well and talks about margins, padding, . Go read it!
 
 The two common layouts used in XML are:
   1. [Linear Layout](https://developer.android.com/guide/topics/ui/layout/linear.html)
@@ -39,9 +39,21 @@ The elements in a linear layout are stacked one after another, either horizontal
   2. [Relative Layout](https://developer.android.com/guide/topics/ui/layout/relative.html)
 As the name suggests, all the elements are displayed relative to either other children or the parent view. It is more powerful as it eliminates the need for nested Linear Layouts.
 
+#### App bar
+
+#### Settings
+
+#### Pop-up messages
+
+#### Toasts
+
+There are many more UI elements available to your app than the few mentioned above. So, go explore the developer's page and the links listed under Resources.
 
 ### Resources:
-1. [Intro to Github flow](https://guides.github.com/introduction/flow/)
+Skim through the resources' content listed below. Whenever you start working on an app, you can come back to these and apply the relevant information.
+
+  1. [Best Practices for User Interface](https://developer.android.com/training/best-ui.html)
+  2. []
 
 ### Try It Out!
 This git tutorial is super cool because it not only let's you enter the commands but also visually see what happens in a certain repo. **[HW] Do at least 8 levels.**
