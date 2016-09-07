@@ -179,7 +179,7 @@ Hello World!
 
 Don't worry too much yet about what all the words in `public static void main(String[] args)` mean. For now, just remember that this is the **main method**, and that every java program must have a main method defined. This main method is what the Java Virtual Machine runs initially, and all subsequent code eventually stems from the main method.
 
-### `Account` and `MoneySaver`
+# `Account` and `MoneySaver`
 
 #### Classes
 
@@ -622,4 +622,11 @@ If you believe you correctly implemented the homework but your tests aren't pass
 
 ## Assignment
 
-Your homework is to do all bolded **[HW]** sections of this README.
+Your homework is to do all bolded **[HW]** sections of this README. You should have completed the following four portions of this assignment:
+
+1. The Github Tutorial
+2. The MoneySaver Java code
+3. The Fraction Java code
+4. The Animal Farm Java code
+
+This assignment will be pretty time consuming and tricky if you don't have any Java exposure. It's our hope that after completing it you will feel comfortable enough to dive headfirst into Android Development. Start early, and be proactive about getting help/using outside resources to complete the assignment.
