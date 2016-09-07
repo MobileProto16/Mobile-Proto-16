@@ -563,7 +563,7 @@ public class FractionTester {
 5. Define the `Animal` subclasses `Cat`, `Dog`, `Cow`. Each should have a constructor with input arguments `(name, color)`. If you're having trouble, check out [this](http://www.tutorialspoint.com/java/java_abstraction.htm) example. Have cats and dogs' weights be initalized randomly between 0-25, and cows 100-200.
 6. Make the `grow` method in `Cat` multiply its weight by 3, in `Dog` by 1.5, and in `Cow` by 5.
 7. Define a class `Farm`. A farm should have an `ArrayList` of `Animal`s.
-8. Give the `Farm` class an `addAnimal` function.
+8. Give the `Farm` class an `addAnimal` function which adds an Animal object to the underlying `ArrayList`. Add a `getAnimal` function, which returns the Animal object at a specified index in the `ArrayList`.
 9. Define `getHeaviestAnimals()` in `Farm`, which returns a new (don't modify the underlying ArrayList) sorted ArrayList.
 10. Define `printCatNames()`, which prints each cat's name to a new line in the console.
 11. Define `averageLegs()`, which returns the average number of legs amongst the animals in the farm.
@@ -587,7 +587,8 @@ c.grow();
 d.grow();
 cow.grow();
 System.out.println("Test 4 Passed: " + (c.getWeight() / old_weight_cat == 3));
-System.out.println("Test 5 Passed: " + (Math.abs(((float)(d.getWeight()) / old_weight_dog - 1.5)) < 0.01));
+System.out.println("Test 5 Passed: " +
+        (Math.abs(d.getWeight() / old_weight_dog - 1.5) < 0.01));
 System.out.println("Test 6 Passed: " + (cow.getWeight() / old_weight_cow == 5));
 
 Farm farm = new Farm();
@@ -599,11 +600,15 @@ ArrayList<Animal> sorted = farm.getHeaviestAnimals();
 for(int i = 0; i < sorted.size() - 1; i++) {
     System.out.println("Test " + (i + 7) + " Passed: " + (sorted.get(i).getWeight() > sorted.get(i + 1).getWeight()));
 }
-c.setLeg(7);  // lol 6 legged cat
-System.out.println("Test 9 Passed: " + (farm.averageLegs() == 5));
+System.out.println("Test 9 Passed: " + (farm.getAnimal(0) == c));
+System.out.println("Test 10 Passed: " + (farm.getAnimal(1) == d));
+System.out.println("Test 11 Passed: " + (farm.getAnimal(2) == cow));
+c.setLeg(7);  // lol 7 legged cat
+System.out.println("Test 12 Passed: " + (farm.averageLegs() == 5));
 
 System.out.println("Printing 'Meowth'...");
 farm.printCatNames();
+
 ```
 
 ```
@@ -611,11 +616,14 @@ Test 1 Passed: true
 Test 2 Passed: true
 Test 3 Passed: true
 Test 4 Passed: true
-Test 5 Passed: true
+Test 5 Passed: false
 Test 6 Passed: true
 Test 7 Passed: true
 Test 8 Passed: true
 Test 9 Passed: true
+Test 10 Passed: true
+Test 11 Passed: true
+Test 12 Passed: true
 Printing 'Meowth'...
 Meowth
 ```
