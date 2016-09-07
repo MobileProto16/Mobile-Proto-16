@@ -133,9 +133,11 @@ captures/
 2. [Git Guide](http://rogerdudler.github.io/git-guide/)
 3. [Github Issues](https://guides.github.com/features/issues/)
 4. [Git Branching](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+5. [Git cheat sheet](https://www.git-tower.com/blog/git-cheat-sheet/)
 
 ### Try It Out!
-This git tutorial is super cool because it not only let's you enter the commands but also visually see what happens in a certain repo. **[HW] Do at least 8 levels.**
+
+This git tutorial is super cool because it not only let's you enter the commands but also visually see what happens in a certain repo. **[HW] Do at least 8 levels.** The levels you choose to do are up to you. If you feel pretty git-fluent, you may skip some of the earlier levels and do 8 later ones. It's up to you!
 [Github tutorial](http://learngitbranching.js.org/)
 
 ## Java
