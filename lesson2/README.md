@@ -1,5 +1,12 @@
 # Lesson 2 - Github and an Intro to Java
 
+Before starting this lesson, make sure to pull the upstream branch into your current one, and push your changes to be able to view the updates on Github.
+
+```
+$ git pull upstream master
+$ git push origin master
+```
+
 ##  Github
 
 ### Ideas behind a perfect repo
