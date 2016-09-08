@@ -7,6 +7,9 @@ $ git pull upstream master
 $ git push origin master
 ```
 
+## Android Phone Survey
+In the beginning of class, please fill out [this survey](https://docs.google.com/forms/d/e/1FAIpQLSeRxNqNjGmApuXS7ZwsO5ERldkJnBRNexOaKKaBf5wx-jV_IA/viewform) so we know how many phones we need to provide next class.
+
 ##  Github
 
 ### Ideas behind a perfect repo
@@ -647,3 +650,5 @@ Your homework is to do all bolded **[HW]** sections of this README. You should h
 4. The Animal Farm Java code
 
 This assignment will be pretty time consuming and tricky if you don't have any Java exposure. It's our hope that after completing it you will feel comfortable enough to dive headfirst into Android Development. Start early, and be proactive about getting help/using outside resources to complete the assignment.
+
+Fill out [this](https://goo.gl/forms/AWH6hrJB0tXct1tk1) form when you're done!
