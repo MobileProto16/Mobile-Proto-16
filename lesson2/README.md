@@ -7,10 +7,8 @@ $ git pull upstream master
 $ git push origin master
 ```
 
-## Android Phone and In-class Survey
+## Android Phone Survey
 In the beginning of class, please fill out [this survey](https://docs.google.com/forms/d/e/1FAIpQLSeRxNqNjGmApuXS7ZwsO5ERldkJnBRNexOaKKaBf5wx-jV_IA/viewform) so we know how many phones we need to provide next class.
-
-Also, fill [this survey](https://goo.gl/forms/yb1D6ruxWl2yNQ4W2) at the end of the class to give us feedback.
 
 ##  Github
 
