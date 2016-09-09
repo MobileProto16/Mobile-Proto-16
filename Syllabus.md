@@ -26,11 +26,11 @@ Your teachers are Bill Wong, David Abrahams, Nora Mohamed, and Shruti Iyer, with
 This is class is a **4 credit Independent Study** (IS) in engineering. Note that it does not fulfill your OSS requirement.
 
 ### Office Hours
-Office Hours will be 8-10pm Sunday and Wednesday (the nights before assignments are due):
+Office Hours will be **8-10pm Sunday and Wednesday night in WH3**:
  - **Sun:** 8-9pm Hieu + Patrick, 9-10pm Nora + Deniz
  - **Wed:** 8-9pm David + Shruti, 9-10pm Bill
 
-If you need help, check out our Slack channel, [#mobileproto](https://olin.slack.com/messages/mobileproto/). We advise using it over emailing us when you have code questions (but emailing us is great too). Other people might have the same questions, so using the Slack channel can help them out too.
+If you need help and it's not during office hours, check out our Slack channel, [#mobileproto](https://olin.slack.com/messages/mobileproto/). We advise using it over emailing us when you have code questions (but emailing us is great too). Other people might have the same questions, so using the Slack channel can help them out too.
 
 ## Course Expectations
 We expect that you come to class every day, and you will be responsible for much of your learning. If you fall behind, are struggling to keep up with the course, or have questions, please let us know! Our goal is for you to learn as much as you can.
