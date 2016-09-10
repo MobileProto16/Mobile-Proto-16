@@ -587,7 +587,7 @@ Why does it make sense for `gcd` to be `static`? If you're not sure, ask a peer 
 
 #### `add`
 
-**[HW] Give your `Fraction` a `add` function, which add the other fraction by this fraction, and returns the simplified result.** *This function should not modify either fraction*. You shouldn't change the [Access Modifiers](http://www.tutorialspoint.com/java/java_access_modifiers.htm) to the `numerator` and `denomenator` fields (they should be private).
+**[HW] Give your `Fraction` an `add` function, which should add the other fraction to this fraction, and return the simplified result.** *This function should not modify either fraction*. You shouldn't change the [Access Modifiers](http://www.tutorialspoint.com/java/java_access_modifiers.htm) to the `numerator` and `denomenator` fields (they should be private).
 
 ## Test your functions
 
