@@ -105,3 +105,5 @@ Your goal is to start making a quasi-to-do list app. We'll refer to it as the Si
 1. This app will have two fragments and one activity. One fragments holds the to-do list, while the other fragment holds the settings page. The activity will have a button that lets you switch between fragments.
 2. The to-do list fragment should have five editable `textView`s. Add `onClick` listeners to them so that when you click on a to-do list item, an `alertDialog` will popup and ask for new text. The text the user inputs into the `alertDialog` will then replace the old text in the `textView`. Use a type of `layout` to organize the `textView`s. Don't worry if your app doesn't save the items you changed in your list when you switch fragments.
 3. The settings fragment will allow you to change the app's background color. Add three buttons (any type of 'button' will do) that change the app's background color. For example, have one blue, one red, and one green button.
+
+**When you've completed your assignment, [fill out this survey](https://goo.gl/forms/8yPXBdtwBQlXICur2).**
