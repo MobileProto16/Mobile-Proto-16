@@ -78,3 +78,10 @@ Skim through the resources' content listed below. Whenever you start working on 
 
 ### Try It Out!
  
+**[HW]** 
+  1. Download Facebook app on an Android phone (if you don't have access to either a Facebook account or an Android phone, let the teaching team know)
+  2. Observe and ask questions about the design intention. The design principles will help you here. Write up the questions and the corresponding findings?
+  3. You might have thoughts about a different layout. Prototype on paper. Include your prototype's picture (and its revisions) in your write-up. You could also use one of the programs (like Fluid UI) to make the prototypes.
+  4. (Optional) Recreate your layout(s) in Android Studio by writing XML file(s) for them.
+  
+Fill out [this survey](https://goo.gl/forms/LLUhDfZzBkkqawtp1) after you finish the HW
