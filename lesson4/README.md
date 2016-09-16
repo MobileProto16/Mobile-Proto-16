@@ -1,4 +1,4 @@
-# Lesson 4 - Listviews, Adapters, Debugging
+# Lesson 4 - Listviews, Adapters, Debugging, and Butterknife
 
 **The assignment(s) in this README are due on at 6:30pm on Monday, Sept 19.**
 
@@ -184,6 +184,144 @@ Using the buttons on the top of the debug window, you can do a couple useful thi
 - Resume Program: continue the program normally (or advance to the next breakpoint if you have other breakpoints)
 
 If you want more information about debugging, [this guide](http://blog.strv.com/debugging-in-android-studio-as/) goes into more detail and is easy to read.
+
+## Butterknife
+
+By now you're probably tired of using lines of code like this:
+
+```
+editText = (EditText) view.findViewById(R.id.edit_text_id);
+```
+
+over and over again. Turns out, there's a library called [Butterknife](http://jakewharton.github.io/butterknife/) that will bind your UI elements to variables for you! Here's how to use it.
+
+First, add `classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'` to your `dependencies` in your project level `build.gradle` (It should say "build.gradle (Project:MyApplication)" in Android Studio).
+
+Here's an example of a `build.gradle` the `apt` plugin:
+
+```
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.1.3'
+        // HERE IS THE IMPORTANT LINE YOU HAVE TO ADD
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+```
+
+Open your module level gradle (build.gradle (Module: app)) and add `apply plugin: 'android-apt'` to the top. Finally, add the two butterknife dependencies to `dependencies`:
+
+```
+dependencies {
+  compile 'com.jakewharton:butterknife:8.4.0'
+  apt 'com.jakewharton:butterknife-compiler:8.4.0'
+}
+```
+
+Here's the final module level gradle file:
+
+```
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
+
+    defaultConfig {
+        applicationId "com.example.david.myapplication"
+        minSdkVersion 15
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:design:24.2.1'
+
+    // HERE ARE THE BUTTERKNIFE IMPORTS
+    compile 'com.jakewharton:butterknife:8.4.0'
+    apt 'com.jakewharton:butterknife-compiler:8.4.0'
+}
+```
+
+Now, instead of using `view.findViewById(...)`, place `Bind` statements at the top of your class (right after the `public class MyFragment extends Fragment`):
+
+```
+public class MainActivityFragment extends Fragment {
+    @BindView(R.id.text_view_id) TextView textView;
+
+    public MainActivityFragment() {
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_main, container, false);
+    }
+}
+```
+
+Finally, you have to explicitly bind ButterKnife to your fragment in your `onCreateView`:
+
+```
+
+public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                         Bundle savedInstanceState) {
+    View view = inflater.inflate(R.layout.fragment_main, container, false);
+    ButterKnife.bind(this, view);
+    return view;
+}
+
+```
+
+Here's the final ButterKnife'd fragment:
+
+```
+public class MainActivityFragment extends Fragment {
+    @BindView(R.id.text_view_id) TextView textView;
+
+    public MainActivityFragment() {
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_main, container, false);
+        ButterKnife.bind(this, view);
+        return view;
+    }
+}
+```
 
 ## Assignment
 Before next class, you're going to modify your todo app from Lesson 2 to use what you learned today.  Requirements:
