@@ -291,7 +291,7 @@ public class MainActivityFragment extends Fragment {
 }
 ```
 
-Finally, you have to explicitly bind ButterKnife to your fragment in your `onCreateView`:
+Finally, you have to explicitly bind ButterKnife to your fragment in your `onCreateView` using `ButterKnife.bind`:
 
 ```
 
