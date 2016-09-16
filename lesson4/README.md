@@ -1,5 +1,7 @@
 # Lesson 4 - Listviews, Adapters, Debugging
 
+**The assignment(s) in this README are due on at 6:30pm on Monday, Sept 19.**
+
 ## ListViews
 ### Concepts Behind ListViews
 In order to display a scrollable list of something in Android, you will need to use a `ListView`.  A `ListView` is what you see when you scroll through a list of clickable things in an app, like your friends list in Snapchat or your list of chats in Messenger.
