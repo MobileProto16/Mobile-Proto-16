@@ -197,7 +197,7 @@ over and over again. Turns out, there's a library called [Butterknife](http://ja
 
 First, add `classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'` to your `dependencies` in your project level `build.gradle` (It should say "build.gradle (Project:MyApplication)" in Android Studio).
 
-Here's an example of a `build.gradle` the `apt` plugin:
+Here's an example of a `build.gradle` with the `apt` plugin:
 
 ```
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
@@ -323,6 +323,18 @@ public class MainActivityFragment extends Fragment {
 }
 ```
 
+The `textView` variable can now be used throughout your class. For example, you can edit its text in the `onCreateView`:
+
+```
+public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                         Bundle savedInstanceState) {
+    View view = inflater.inflate(R.layout.fragment_main, container, false);
+    ButterKnife.bind(this, view);
+    textView.setText("This is some text");
+    return view;
+}
+```
+
 ## Assignment
 Before next class, you're going to modify your todo app from Lesson 2 to use what you learned today.  Requirements:
 - A way to add new todo items.
@@ -330,6 +342,7 @@ Before next class, you're going to modify your todo app from Lesson 2 to use wha
 - A way to delete items when the user completes them.
 - A way to edit an item.
 - Use a custom `Adapter`. You could make an icon that changes when the item is completed, or make each item have an inline edit/complete button, but make something custom that goes beyond an `ArrayAdapter`.
+- Uses ButterKnife instead of `findViewById` to declare variables.
 
 Stretch goals (optional):
 - Have each item have a description that displays when you click on it, maybe in an `AlertDialog` or a different fragment.
