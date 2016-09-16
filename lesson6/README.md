@@ -1,9 +1,11 @@
-# Lesson 6 - How to Create an App
+# Lesson 6 - How to Design an App
 
 ##  Designing an app
 
+Here is an example process for desigining an app:
+
 #### 1. Observe
-Open any app on your phone. It could be very simple or very complex; there is something to learn from both. While using it, ask questions. Some examples of questions could be:
+Open up any app on your phone. It could be very simple or very complex; there's something to learn from both. While using it, ask questions. Some examples of questions could be:
   1. What does the logo/name communicate to the users?
   2. Are all the features easily discoverable?
   3. In order to perform an action, how many times did you tap? Too many popups asking you to choose YES or NO?
@@ -12,16 +14,16 @@ Open any app on your phone. It could be very simple or very complex; there is so
 Read through the [Android Design Principles](https://developer.android.com/design/get-started/principles.html). It will help you think of more questions to ask.
 
 #### 2. Design
-Asking question while looking at an app can be incredibly helpful while trying to design something. Once you have an idea what your app is going to be about, make a first rought draft. Concentrate on the features you will be providing and the top-level navigation of the app. 
+Asking question while looking at an app can be incredibly helpful while trying to design something. Once you have an idea what your app is going to be about, first make a rought draft. Concentrate on the features you'll be providing and the top-level navigation of the app.
 
-Draw the screens on pieces of paper (or use one of the many online programs like fluidui). Test these mockups on your friends. It is recommended that you let your friends first explore the mockups without any instructions and observe what they see, think and do. Later, you can ask more specific questions about the features in your mockup.
+Draw the screens on paper (prototyping software like fluidui work too, or even MSPaint/Photoshop). Test these mockups on your friends. It is recommended that you let your friends first explore the mockups without any instructions and observe what they see, think and do. Later, you can ask more specific questions about the features in your mockup.
 
-Next step is to integrate whatever feedback you received from the User Testing into your app design. At this stage, you can also decide on the color scheme of the app, logo, name etc. You could do cycles of user testing-->feedback integration--> testing again until you are satisfied with the app.
+Next step is to integrate whatever feedback you received from user testing into your app's design. At this stage, you can also decide on the color scheme of the app, logo, name etc. You could do cycles of user testing, then feedback integration, then testing again until you are satisfied with the app.
 
-Apps like FB Messenger or Snapchat would go through many periodic Usability Testing. It is important to make sure that your app remains sleek and intuitive while adding new features or editing existing features.
+Apps like Facebook Messenger or Snapchat would go through many cycles of usability testing. It's important to make sure your app remains sleek and intuitive while adding new features or editing existing features.
 
 #### 3. Testing after developing:
-Once you have a Minimum Viable Product (MVP) of your app, test again. But this time, it is a little different.
+Once you have a Minimum Viable Product (MVP) of your app, test it again.
   1. Try to break it
       * Rotate the device. Do all elements adjust well?
       * Tap at random places
@@ -30,10 +32,10 @@ Once you have a Minimum Viable Product (MVP) of your app, test again. But this t
   3. Test your code for edge cases and weird events 
 
 ## App Elements
-Note: The documentation for all the app elements listed below are really good. We tried to summarize it so that you get an idea of each of the elements. When you use them in your app, the developers website is the best place to learn more about them.
+Note: The documentation for all the app elements listed below are very good. We tried to summarize them so that you get an idea of each element. When you use them in your app, the developer's website is the best place to learn more about them.
 
 #### Layouts
-While writing the XML files for your app, you might have noticed there are numerous ways to layout and display the content. [This](https://developer.android.com/guide/topics/ui/declaring-layout.html) document explains layouts really well and talks about margins, padding, . Go read it!
+While writing the XML files for your app, you might have noticed there are numerous ways to layout and display the content. [This](https://developer.android.com/guide/topics/ui/declaring-layout.html) document explains layouts really well and talks about margins, and padding. Go read it!
 
 The two common layouts used in XML are:
   1. [Linear Layout](https://developer.android.com/guide/topics/ui/layout/linear.html)
@@ -65,7 +67,7 @@ A toast provides simple feedback about an operation in a small popup. It only fi
 
 ![Toasts](https://developer.android.com/images/toast.png)
 
-There are many more UI elements available to your app than the few mentioned above. So, go explore the developer's page and the links listed under Resources.
+There are many more UI elements available to your app than the few mentioned above. So, go explore the developer's page and the links listed below under "Resources".
 
 ### Resources:
 Skim through the resources' content listed below. Whenever you start working on an app, you can come back to these and use the relevant information.
