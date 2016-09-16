@@ -195,6 +195,8 @@ editText = (EditText) view.findViewById(R.id.edit_text_id);
 
 over and over again. Turns out, there's a library called [Butterknife](http://jakewharton.github.io/butterknife/) that will bind your UI elements to variables for you! Here's how to use it.
 
+### Dependencies
+
 First, add `classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'` to your `dependencies` in your project level `build.gradle` (It should say "build.gradle (Project:MyApplication)" in Android Studio).
 
 Here's an example of a `build.gradle` with the `apt` plugin:
@@ -273,6 +275,8 @@ dependencies {
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
 }
 ```
+
+### Usage
 
 Now, instead of using `view.findViewById(...)`, place `Bind` statements at the top of your class (right after the `public class MyFragment extends Fragment`):
 
