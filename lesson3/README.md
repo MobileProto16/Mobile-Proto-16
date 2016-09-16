@@ -1,6 +1,6 @@
 # Lesson 3 - Android Basics
 
-**The assignment(s) in this README are due on Friday, Sept 16.**
+**The assignment(s) in this README are due on at midnight on Friday, Sept 16 (due at Friday night. Not Saturday night).**
 
 ### Your first Android application!
 Today in class we'll walk you through making your first Android application. Found in the lesson3 folder is a copy of the application that we will create in class.
