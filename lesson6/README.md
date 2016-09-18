@@ -10,17 +10,18 @@ Open up any app on your phone. It could be very simple or very complex; there's 
   2. Are all the features easily discoverable?
   3. In order to perform an action, how many times did you tap? Too many popups asking you to choose YES or NO?
   4. How does the color scheme fit the overall feel?
+  5. How easy are certain buttons to tap? Are they used often?
 
 Read through the [Android Design Principles](https://developer.android.com/design/get-started/principles.html). It will help you think of more questions to ask.
 
 #### 2. Design
-Asking question while looking at an app can be incredibly helpful while trying to design something. Once you have an idea what your app is going to be about, first make a rought draft. Concentrate on the features you'll be providing and the top-level navigation of the app.
+Asking questions while looking at an app can be incredibly helpful while trying to design something. Once you have an idea what your app is going to be about, first make a rough draft. Concentrate on the features you'll be providing and the top-level navigation of the app.
 
 Draw the screens on paper (prototyping software like fluidui work too, or even MSPaint/Photoshop). Test these mockups on your friends. It is recommended that you let your friends first explore the mockups without any instructions and observe what they see, think and do. Later, you can ask more specific questions about the features in your mockup.
 
 Next step is to integrate whatever feedback you received from user testing into your app's design. At this stage, you can also decide on the color scheme of the app, logo, name etc. You could do cycles of user testing, then feedback integration, then testing again until you are satisfied with the app.
 
-Apps like Facebook Messenger or Snapchat would go through many cycles of usability testing. It's important to make sure your app remains sleek and intuitive while adding new features or editing existing features.
+Apps like Facebook Messenger or Snapchat go through many cycles of usability testing. It's important to make sure your app remains sleek and intuitive when you're adding new features or editing existing features.
 
 #### 3. Testing after developing:
 Once you have a Minimum Viable Product (MVP) of your app, test it again.
@@ -30,12 +31,13 @@ Once you have a Minimum Viable Product (MVP) of your app, test it again.
       * Try devices of different screen sizes.
   2. Get a fresh pair of eyes
   3. Test your code for edge cases and weird events 
+  4. Try different hardware
 
 ## App Elements
 Note: The documentation for all the app elements listed below are very good. We tried to summarize them so that you get an idea of each element. When you use them in your app, the developer's website is the best place to learn more about them.
 
 #### Layouts
-While writing the XML files for your app, you might have noticed there are numerous ways to layout and display the content. [This](https://developer.android.com/guide/topics/ui/declaring-layout.html) document explains layouts really well and talks about margins, and padding. Go read it!
+While writing the XML files for your app, you might have noticed there are numerous ways to layout and display the content. [This](https://developer.android.com/guide/topics/ui/declaring-layout.html) **[HW]** document explains layouts really well and talks about margins, and padding. Go read it!
 
 The two common layouts used in XML are:
   1. [Linear Layout](https://developer.android.com/guide/topics/ui/layout/linear.html)
@@ -81,9 +83,9 @@ Skim through the resources' content listed below. Whenever you start working on 
 ### Try It Out!
  
 **[HW]** 
-  1. Download Facebook app on an Android phone (if you don't have access to either a Facebook account or an Android phone, let the teaching team know)
-  2. Observe and ask questions about the design intention. The design principles will help you here. Write up the questions and the corresponding findings?
+  1. Download Facebook app on an Android phone (if you don't have access to either a Facebook account or an Android phone, let the teaching team know).
+  2. Observe and ask questions about the design intention. The design principles will help you here. Write up the questions and the corresponding findings.
   3. You might have thoughts about a different layout. Prototype on paper. Include your prototype's picture (and its revisions) in your write-up. You could also use one of the programs (like Fluid UI) to make the prototypes.
-  4. (Optional) Recreate your layout(s) in Android Studio by writing XML file(s) for them.
+  4. Recreate your layout(s) in Android Studio by writing XML file(s) for them.
   
 Fill out [this survey](https://goo.gl/forms/LLUhDfZzBkkqawtp1) after you finish the HW
