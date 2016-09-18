@@ -352,3 +352,5 @@ Stretch goals (optional):
 - Have each item have a description that displays when you click on it, maybe in an `AlertDialog` or a different fragment.
 
 The details of how to implement this are up to you.
+
+Fill out [this submission form](https://docs.google.com/forms/d/e/1FAIpQLSf9mVD3P3hRbISzums4vCkl1wcFWjO-Nc86lhvMo_9LYjKbWQ/viewform) when you're done!
