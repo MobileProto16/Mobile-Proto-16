@@ -1,5 +1,8 @@
 # Lesson 5 - Data Storage App Life Cycle
 
+**The homework in this README is due at 6:30pm on Monday, Sept 26**
+
+
 ##  Data Storage
 Everytime you close an app and reopen it, a new session of app is created. This means that any data that wasn't saved cannot be retrieved again. This is where persistent storage comes in. Android provides you with 5-6 options to choose from. While choosing an option, you should consider complexity of data being stored, privacy (if it can be read by the app only, the users or other apps on the device), and location (if it is local or on the cloud). We'll be mainly discussing Shared Preferences and SQLite databases. But here are many of the options available to Android:
 
@@ -119,3 +122,4 @@ Below are some important excerpts from each lesson.
 
 We'll be using two kinds of storage to save the data in our Todo app. All the *Settings* should be saved using SharedPreferences. Use a SQL database to save the todos as well as their status. Use the correct methods of activity life cycle to figure out where to save and retrive those preferences. Test your app by pausing, resuming, quitting and restarting the app.
 
+**The homework in this README is due at 6:30pm on Monday, Sept 26**
