@@ -122,4 +122,6 @@ Below are some important excerpts from each lesson.
 
 We'll be using two kinds of storage to save the data in our Todo app. All the *Settings* should be saved using SharedPreferences. Use a SQL database to save the todos as well as their status. Use the correct methods of activity life cycle to figure out where to save and retrive those preferences. Test your app by pausing, resuming, quitting and restarting the app.
 
+When you're done, fill in [this](https://goo.gl/forms/8fSPitpJ9BiCzY812) google form!
+
 **The homework in this README is due at 6:30pm on Monday, Sept 26**
