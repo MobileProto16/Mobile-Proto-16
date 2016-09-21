@@ -89,13 +89,15 @@ This will be the rubric we will be using for your homework assignments:
 ##### Completion: 20 points
 
 * 20 - You implemented all of the required features in the assignment. The assignment is complete
-* 10 - Some or most of the required features were implemented.
+* 15 - All major features were implemented. You didn't get to one or two small features.
+* 10 - Some of the required features were implemented.
 * 0 - Less than half of the desired features were implemented.
 
 ##### Bug free: 10 points
 
 * 10 - The app is bug free
-* 0 - Your app has one or more bugs, causing unexpected behavior.
+* 5 - Your app has one or two bugs, occassionally causing unexpected behavior
+* 0 - Your app has multiple bugs, frequently causing unexpected behavior.
 
 #### Quality: 20 points
 
