@@ -5,7 +5,7 @@
 Here is an example process for desigining an app:
 
 #### 1. Observe
-Open up any app on your Android phone. It could be very simple or very complex; there's something to learn from both. While using it, ask questions. Some examples of questions could be:
+When you look at any simple of complex Android app, there's something to learn from both. While using it, ask questions. Some examples of questions could be:
   1. What does the logo/name communicate to the users?
   2. Are all the features easily discoverable?
   3. In order to perform an action, how many times did you tap? Too many popups asking you to choose YES or NO?
