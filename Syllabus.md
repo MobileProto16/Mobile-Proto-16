@@ -91,7 +91,8 @@ This will be the rubric we will be using for your homework assignments:
 * 20 - You implemented all of the required features in the assignment. The assignment is complete
 * 15 - All major features were implemented. You didn't get to one or two small features.
 * 10 - Some of the required features were implemented.
-* 0 - Less than half of the desired features were implemented.
+* 5 - An attempt was made to implement some of the of the desired features.
+* 0 - Very few or none of the desired features were implemented.
 
 ##### Bug free: 10 points
 
