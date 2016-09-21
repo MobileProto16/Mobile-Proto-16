@@ -36,6 +36,8 @@ Once you have a Minimum Viable Product (MVP) of your app, test it again.
 ## App Elements
 Note: The documentation for all the app elements listed below are very good. We tried to summarize them so that you get an idea of each element. When you use them in your app, the developer's website is the best place to learn more about them.
 
+![Layout](https://material-design.storage.googleapis.com/publish/material_v_9/0Bx4BSt6jniD7T0hfM01sSmRyTG8/layout_structure_regions_mobile.png)
+
 #### Layouts
 While writing the XML files for your app, you might have noticed there are numerous ways to layout and display the content. [This](https://developer.android.com/guide/topics/ui/declaring-layout.html) **[HW]** document explains layouts really well and talks about margins, and padding. Go read it!
 
