@@ -20,84 +20,44 @@ Since we talked about APIs, we'll introduce some key libraries as well.
     * [Gson](https://github.com/google/gson) - For when you need to parse JSON
     * [Picasso](https://square.github.io/picasso/) - Makes displaying images simpler
 
-## HTTP requests
+# HTTP requests
 *Note: this portion was constructed borrowing heavily from [these](https://developer.android.com/training/volley/simple.html) Android docs. Feel free to check them out for more information*
 
 Many websites or companies offer RESTful APIs (application program interfaces) for other developers to use. REST (REpresentational State Transfer) APIs are APIs that allow you to access them using the HTTP verbs you may already be familiar with, such as `GET`, and `POST`. For your future labs and project, you may want to incorporate functionality with Twitter, Spotify, or Instagram, all of which have a REST API available.
 
-The Android framework offers a specific protocol for making http requests. Android provides the HTTP library `Volley`. Add the following to your gradle:
+## Step 1: Dependencies
+
+The Android framework offers a specific protocol for making http requests. Android provides the HTTP library `Volley`. Add the following to your Module gradle under `dependencies`:
 
 ```
-compile 'com.android.volley:volley:1.0.0'
+dependencies {
+    ...
+    ...
+    compile 'com.android.volley:volley:1.0.0'
+}
 ```
 
 and add the `android.permission.INTERNET` to your app's manifest.
 
-### `RequestQueue`
+## Step 2: Set up a `Singeton` and a `RequestQueue`
+
 You use Volley by creating a `RequestQueue` and passing it `Request` objects. The Queue handles making all of your requests for you, and therefore you should only have one. The Queue will make all your requests and receive their responses.
 
-Volley provides the function `newRequestQueue` to set up a RequestQueue. Here's an example of making a GET request to `google.com`:
-
-```
-final TextView mTextView = (TextView) findViewById(R.id.text);
-
-// Instantiate the RequestQueue.
-RequestQueue queue = Volley.newRequestQueue(this);
-String url ="http://www.google.com";
-
-// Request a string response from the provided URL.
-StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-            new Response.Listener<String>() {
-    @Override
-    public void onResponse(String response) {
-        // Display the first 500 characters of the response string.
-        mTextView.setText("Response is: "+ response.substring(0,500));
-    }
-}, new Response.ErrorListener() {
-    @Override
-    public void onErrorResponse(VolleyError error) {
-        mTextView.setText("That didn't work!");
-    }
-});
-// Add the request to the RequestQueue.
-queue.add(stringRequest);
-```
-
-Volley always delivers responses on the main thread. This allows you to update UI elements directly in the response listener. Ie, you make an HTTP request to Twitter to search for a tweet, and once a response comes in, you can directly update a TextView with the contents of the tweet.
-
-### Singleton Pattern
-If you are constantly making requests in your app (for example, you make multiple requests to different APIs when your app loads, or whenever the user presses a button a request is made), you will want to use a single instance of a `RequestQueue` that lasts the lifetime of your app. The way you do this is with a singleton class.
+If you are constantly making requests in your app (for example, you make multiple requests to different APIs when your app loads), you will want to use a single instance of a `RequestQueue` that lasts the lifetime of your app. The way you do this is with a singleton class.
 
 The `RequestQueue` must be instantiated in your Application as opposed to your Activity. This is so the queue does not get recreated when the activity is (such as when the device is rotated).
 
 Here's the code for a singleton class:
 
-```
+```java
 public class MySingleton {
     private static MySingleton mInstance;
     private RequestQueue mRequestQueue;
-    private ImageLoader mImageLoader;
     private static Context mCtx;
 
     private MySingleton(Context context) {
         mCtx = context;
         mRequestQueue = getRequestQueue();
-
-        mImageLoader = new ImageLoader(mRequestQueue,
-                new ImageLoader.ImageCache() {
-            private final LruCache<String, Bitmap>
-                    cache = new LruCache<String, Bitmap>(20);
-
-            @Override
-            public Bitmap getBitmap(String url) {
-                return cache.get(url);
-            }
-
-            @Override
-            public void putBitmap(String url, Bitmap bitmap) {
-                cache.put(url, bitmap);
-            }
-        });
     }
 
     public static synchronized MySingleton getInstance(Context context) {
@@ -119,46 +79,90 @@ public class MySingleton {
     public <T> void addToRequestQueue(Request<T> req) {
         getRequestQueue().add(req);
     }
+}
+```
 
-    public ImageLoader getImageLoader() {
-        return mImageLoader;
+## Step 3: Build your search URL
+
+When making REST calls, you make requests to a certain URL. They should look identical to website URLs. Sometimes you must pass additional information in the URL. For example, in the homework you will make a request to a URL that looks like this:
+
+```
+http://finance.google.com/finance/info?client=iq&q=aapl
+```
+
+This makes a querry to `http://finance.google.com/finance/info`, and passes it the following parameters:
+
+```
+{
+    client: iq
+    q: aapl
+}
+```
+
+These parameters will allow us to recieve the stock prices for Apple and Microsoft. However, manually building your search URL (`http://finance.google.com/finance/info?client=iq&q=aapl,msft`) is a real pain. Luckily, there is library that simplifies this process called `URI Builder`. Check out [this](http://stackoverflow.com/questions/19167954/use-uri-builder-in-android-or-create-url-with-variables) stackoverflow for some example code.
+
+## Step 4: Make a request
+
+You're now ready to make a request! First, you create a request, and then you pass it to the `RequestQueue`:
+
+```java
+String myUrl = "http://finance.google.com/finance/info?client=iq&q=aapl,msft";
+
+// Request a string response from the provided URL.
+StringRequest stringRequest = new StringRequest(Request.Method.GET, myUrl,
+        new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                // Handle your response here
+            }
+        }, new Response.ErrorListener() {
+    @Override
+    public void onErrorResponse(VolleyError error) {
+    }
+});
+
+// Add a request (in this example, called stringRequest) to your RequestQueue.
+MySingleton.getInstance(this.getActivity()).addToRequestQueue(stringRequest);
+```
+
+## Step 5: Parse the response and update your `Listener`
+
+You can also request your data come back in JSON form (which is basically just nested dictionaries and lists, if you are familiar with Python). Volley provides two classes: `JsonObjectRequest` and `JsonArrayRequest` to request objects and arrays ([docs](https://developer.android.com/training/volley/request.html)). These objects are also a lot easier to parse than a String.
+
+Additionally, you can parse Strings into JSONs manually on your own using Google's `JSON.simple` library. Just add `
+compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
+` to your gradle `dependencies`. Let's say your `response` looked something like this:
+
+```
+{
+    "Cats": 3,
+    "Dogs": 4
+}
+```
+
+and you wanted to get the number of Dogs and put it in a `TextView`. You could make your `Response.Listener` code look like this:
+
+```java
+...
+new Response.Listener<String>() {
+    @Override
+    public void onResponse(String response) {
+        JSONObject j = (JSONObject) new JSONParser().parse(response);
+        String s = j.get("Dogs") + "";  // "4"
+        textView.setText(s);
     }
 }
 ```
 
-Using your singleton to access your application-wide queue:
+### Threading
 
-```
-// Get a RequestQueue
-RequestQueue queue = MySingleton.getInstance(this.getApplicationContext()).
-    getRequestQueue();
+**You don't have to worry to much about the contents of the Threading section. However if you want to learn, feel free to read this. Otherwise, go ahead and start the homework.**
 
-// ...
+Volley always delivers responses on the main thread. This allows you to update UI elements directly in the response listener. Ie, you make an HTTP request to Twitter to search for a tweet, and once a response comes in, you can directly update a TextView with the contents of the tweet.
 
-// Add a request (in this example, called stringRequest) to your RequestQueue.
-MySingleton.getInstance(this).addToRequestQueue(stringRequest);
-```
+Programs run one line at a time. If you have a single expression that is slow, it can cause your app to lag. This is generally not an issue, most statements (like `int i = 1 + 1`) are *really* fast. However, you don't know how fast/slow an API will respond. If your program waited for APIs to respond this would be problematic.
 
-Programs run one line at a time. If you have a single expression that is slow, it can cause your app to lag. This is generally not an issue, most statements are fast. However, you don't know how fast/slow an API will respond. If your program waited for APIs to respond this would be problematic. However, one more important aspect of Volley: **you don't have to specify for requests to be done asynchronously!** Volley handles all requests on a separate thread and deals with multi-threading for you, and returns all responses to the main thread. Rather than waiting for a request to execute code, the response listener gets called whenever the API responds. Additionally, you can put several requests in the queue and they will all be made one after another, without waiting for each to respond before making the next request.
-
-### URI building
-
-Constructing the proper search URL by hand, by concatenating strings together and replacing spaces with ampersands can be a real pain. Fortunately, there's a library that simplifies this process called URIBuilder. Check out (this)[http://stackoverflow.com/questions/19167954/use-uri-builder-in-android-or-create-url-with-variables] stackoverflow for some example code.
-
-### JSONs
-
-You can also request your data come back in JSON form (which is basically just nested dictionaries and lists, if you are familiar with Python). Volley provides two classes: `JsonObjectRequest` and `JsonArrayRequest` to request objects and arrays ((docs)[https://developer.android.com/training/volley/request.html]). These objects are also a lot easier to parse than a String.
-
-Additionally, you can parse Strings into JSONs manually on your own using Google's `JSON.simple` library. Just add `
-compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
-` to your gradle. You can then do stuff like:
-
-```java
-JSONObject j = (JSONObject) new JSONParser().parse("{"Cats": 3, "Dogs": 4}");
-j.get("Dogs");  // 4
-```
-
-Manually writing code to figure out the location of the `4` would have been quite annoying.
+One more important aspect of Volley: **you don't have to specify for requests to be done [asynchronously](http://stackoverflow.com/questions/3393751/what-does-asynchronous-means-in-ajax)!** Volley handles all requests on a separate thread and deals with multi-threading for you, and returns all responses to the main thread. Rather than waiting for a request to execute code, the response listener gets called whenever the API responds. Additionally, you can put several requests in the queue and they will all be made one after another, without waiting for each to respond before making the next request.
 
 ## Assignment
 
@@ -166,18 +170,24 @@ Manually writing code to figure out the location of the `4` would have been quit
 
 ### Stock App
 
-Create an application that allows the user to enter in the stock tickets for one or multiple companies, and display the current price for each company. How you display them is up to you, but make sure it is intuitive to a user. One way you could do it is with a custom ListView, where each element has a search box on the left and displays the price on the right.
+Create an application that allows the user to enter in the stock tickets for one or multiple companies, and display the current price for each company. How you display them is up to you. One way you could do it is with a custom `ListView` and `Adapter`, where each element has a search box on the left and displays the price on the right. If you want to spend less time on the UI, you could simply have a bunch of `EditText`s with search buttons.
 
-We recommend using Google's stock API. Here's an example of a url that gives you Microsoft and Apple's current prices:
-
-```
-http://finance.google.com/finance/info?client=iq&q=aapl,msft
-``` 
-
-And the output:
+We recommend using Google's stock API. Here's an example of a url that gives you Apple's current prices:
 
 ```
-// [ { "id": "22144" ,"t" : "AAPL" ,"e" : "NASDAQ" ,"l" : "98.66" ,"l_fix" : "98.66" ,"l_cur" : "98.66" ,"s": "0" ,"ltt":"4:00PM EDT" ,"lt" : "Jul 22, 4:00PM EDT" ,"lt_dts" : "2016-07-22T16:00:01Z" ,"c" : "-0.77" ,"c_fix" : "-0.77" ,"cp" : "-0.77" ,"cp_fix" : "-0.77" ,"ccol" : "chr" ,"pcls_fix" : "99.43" } ,{ "id": "358464" ,"t" : "MSFT" ,"e" : "NASDAQ" ,"l" : "56.57" ,"l_fix" : "56.57" ,"l_cur" : "56.57" ,"s": "0" ,"ltt":"4:00PM EDT" ,"lt" : "Jul 22, 4:00PM EDT" ,"lt_dts" : "2016-07-22T16:00:02Z" ,"c" : "+0.77" ,"c_fix" : "0.77" ,"cp" : "1.38" ,"cp_fix" : "1.38" ,"ccol" : "chg" ,"pcls_fix" : "55.8" } ]
+http://finance.google.com/finance/info?client=iq&q=aapl
+```
+
+Try pasting that URL into your web browser to see what the response looks like!
+
+**Hint:** You're going to want to take off the "// " from the beginning of the response using [substring](https://www.tutorialspoint.com/java/java_string_substring.htm). You can then parse the response into a `JSONArray` and then iterate over it like this:
+
+```java
+JSONArray json = (JSONArray) new JSONParser().parse(myString);
+for (int i = 0; i < json.size(); i++) {
+    JSONObject o = (JSONObject) json.get(i);
+    // You can now access values in the dictionary using o.get("key")
+}
 ```
 
 ### S3 App
