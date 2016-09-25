@@ -146,6 +146,8 @@ One more important aspect of Volley: **you don't have to specify for requests to
 
 Create an application that allows the user to enter in the stock tickets for one or multiple companies, and display the current price for each company. How you display them is up to you. One way you could do it is with a custom `ListView` and `Adapter`, where each element has a search box on the left and displays the price on the right. If you want to spend less time on the UI, you could simply have a bunch of `EditText`s with search buttons.
 
+We have also included a starting point for you in this repository, called `MyApplication`. it's a simple UI with three `EditText`s and `TextView`s. You can use this as a starting point, or start from scratch.
+
 We recommend using Google's stock API. Here's an example of a url that gives you Apple's current prices:
 
 ```
