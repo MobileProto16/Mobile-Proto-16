@@ -154,9 +154,7 @@ One more important aspect of Volley: **you don't have to specify for requests to
 
 ## Assignment
 
-Create an application that allows the user to enter in the stock tickets for one or multiple companies, and display the current price for each company. How you display them is up to you. One way you could do it is with a custom `ListView` and `Adapter`, where each element has a search box on the left and displays the price on the right. If you want to spend less time on the UI, you could simply have a bunch of `EditText`s with search buttons.
-
-We have also included a starting point for you in this repository, called `MyApplication`. it's a simple UI with three `EditText`s and `TextView`s. You can use this as a starting point, or start from scratch.
+Create an application that allows the user to enter in the stock ticket for a company, and display the current price for the company. How you display them is up to you. We have included a simple UI with some boiler plate code that has an `EditText`, a `TextView`, and a button. You can use this as a starting point, or start from scratch.
 
 We recommend using Google's stock API. Here's an example of a url that gives you Apple's current prices:
 
@@ -166,12 +164,22 @@ http://finance.google.com/finance/info?client=iq&q=aapl
 
 Try pasting that URL into your web browser to see what the response looks like!
 
-**Hint:** You're going to want to take off the "// " from the beginning of the response using [substring](https://www.tutorialspoint.com/java/java_string_substring.htm). You can then parse the response into a `JSONArray` and then iterate over it like this:
+**Hint:** You're going to want to take off the `"// "` from the beginning of the response using [substring](https://www.tutorialspoint.com/java/java_string_substring.htm). You can then parse the response into a `JSONArray` and then iterate over it like this:
 
 ```java
 JSONArray json = (JSONArray) new JSONParser().parse(myString);
-for (int i = 0; i < json.size(); i++) {
-    JSONObject o = (JSONObject) json.get(i);
-    // You can now access values in the dictionary using o.get("key")
-}
+JSONObject stock = json.getJSONObject(i);
+// You can now access values in the dictionary using o.get("key")
 ```
+
+### Stretch goal
+
+Allow the user to input multiple stocks. You can either to a single api call and input multiple stocks:
+
+```
+http://finance.google.com/finance/info?client=iq&q=aapl,msft
+```
+
+or you can add multiple calls to your `RequestQueue`.
+
+One way you could do it is with a custom `ListView` and `Adapter`, where each element has a search box on the left and displays the price on the right.
