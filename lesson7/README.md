@@ -1,9 +1,19 @@
-# HTTP requests
+# APIs
+
+### What's an API anyway?
+An API stands for an application program interface. Think of it as a way for one application to easily communicate with another. For example, maybe you have a blog and want it to show your Twitter feed on the side. In that case, you'd need to use Twitter's API to provide a way for your blog to access Twitter's data. This example is specific to web APIs, but you'll be using a lot of Android APIs in order to make an app (e.g., an API for your app to communicate with the camera). The Android platform has a framework API that apps use to interact with the underlying Android system.
+
+### Android APIs
+Android has a *ton* of APIs built in; they're useful for using hardware sensors, accessing storage, handling user input, and setting config info.. However, you'll have to be careful with which version of Android you're using as APIs will differ depending on that. The APIs are for using hardware sensors, accessing storage, handling user input, and setting config info.
+
+Check the sidebar in [this link](https://developer.android.com/about/versions/marshmallow/android-6.0.html) out to look at the different APIs for versions 4.1 to 6.0. [This link](https://developer.android.com/reference/android/package-summary.html) provides you with a detailed list of every Android-built API available. There are way too many to list so we won't go through them in detail, but if you've seen your phone do it, you'll find how to do it there.
+
+## HTTP requests
 *Note: this portion was constructed borrowing heavily from [these](https://developer.android.com/training/volley/simple.html) Android docs. Feel free to check them out for more information*
 
 Many websites or companies offer RESTful APIs (application program interfaces) for other developers to use. REST (REpresentational State Transfer) APIs are APIs that allow you to access them using the HTTP verbs you may already be familiar with, such as `GET`, and `POST`. For your future labs and project, you may want to incorporate functionality with Twitter, Spotify, or Instagram, all of which have a REST API available.
 
-## Step 1: Dependencies
+### Step 1: Dependencies
 
 The Android framework offers a specific protocol for making http requests. Android provides the HTTP library `Volley`. Add the following to your Module gradle under `dependencies`:
 
@@ -17,7 +27,7 @@ dependencies {
 
 and add the `android.permission.INTERNET` to your app's manifest.
 
-## Step 2: Set up a `Singeton` and a `RequestQueue`
+### Step 2: Set up a `Singeton` and a `RequestQueue`
 
 You use Volley by creating a `RequestQueue` and passing it `Request` objects. The Queue handles making all of your requests for you, and therefore you should only have one. The Queue will make all your requests and receive their responses.
 
@@ -60,7 +70,7 @@ public class MySingleton {
 }
 ```
 
-## Step 3: Build your search URL
+### Step 3: Build your search URL
 
 When making REST calls, you make requests to a certain URL. They should look identical to website URLs. Sometimes you must pass additional information in the URL. For example, in the homework you will make a request to a URL that looks like this:
 
@@ -79,7 +89,7 @@ This makes a querry to `http://finance.google.com/finance/info`, and passes it t
 
 These parameters will allow us to recieve the stock prices for Apple and Microsoft. However, manually building your search URL (`http://finance.google.com/finance/info?client=iq&q=aapl`) is a real pain. Luckily, there is library that simplifies this process called `URI Builder`. Check out [this](http://stackoverflow.com/questions/19167954/use-uri-builder-in-android-or-create-url-with-variables) stackoverflow for some example code.
 
-## Step 4: Make a request
+### Step 4: Make a request
 
 You're now ready to make a request! First, you create a request, and then you pass it to the `RequestQueue`:
 
@@ -103,7 +113,7 @@ StringRequest stringRequest = new StringRequest(Request.Method.GET, myUrl,
 MySingleton.getInstance(this.getActivity()).addToRequestQueue(stringRequest);
 ```
 
-## Step 5: Parse the response and update your `Listener`
+### Step 5: Parse the response and update your `Listener`
 
 You can also request your data come back in JSON form (which is basically just nested dictionaries and lists, if you are familiar with Python). Volley provides two classes: `JsonObjectRequest` and `JsonArrayRequest` to request objects and arrays ([docs](https://developer.android.com/training/volley/request.html)). These objects are also a lot easier to parse than a String.
 
@@ -132,7 +142,7 @@ new Response.Listener<String>() {
 }
 ```
 
-### Threading
+#### Threading
 
 **You don't have to worry to much about the contents of the Threading section. However if you want to learn, feel free to read this. Otherwise, go ahead and start the homework.**
 
