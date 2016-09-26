@@ -146,6 +146,8 @@ new Response.Listener<String>() {
 
 **You don't have to worry to much about the contents of the Threading section. However if you want to learn, feel free to read this. Otherwise, go ahead and start the homework.**
 
+A thread is a single sequence of instructions your computer/phone executes. Your Android application contains a "main thread", which is where all of the code you write gets executed. If one of your lines is really slow, ie, `Thread.sleep(5000);` it will cause your app to hang, as the "main thread" is busy waiting for the `sleep` to end.
+
 Volley always delivers responses on the main thread. This allows you to update UI elements directly in the response listener. Ie, you make an HTTP request to Twitter to search for a tweet, and once a response comes in, you can directly update a TextView with the contents of the tweet.
 
 Programs run one line at a time. If you have a single expression that is slow, it can cause your app to lag. This is generally not an issue, most statements (like `int i = 1 + 1`) are *really* fast. However, you don't know how fast/slow an API will respond. If your program waited for APIs to respond this would be problematic.
