@@ -25,7 +25,7 @@ dependencies {
 }
 ```
 
-and add the `android.permission.INTERNET` to your app's manifest.
+and add `<uses-permission android:name="android.permission.INTERNET" />` to your app's manifest, right above the `application` tag.
 
 ### Step 2: Set up a `Singeton` and a `RequestQueue`
 
@@ -135,9 +135,13 @@ and you wanted to get the number of Dogs and put it in a `TextView`. You could m
 new Response.Listener<String>() {
     @Override
     public void onResponse(String response) {
-        JSONObject j = (JSONObject) new JSONParser().parse(response);
-        String s = j.get("Dogs") + "";  // "4"
-        textView.setText(s);
+        try {
+            JSONObject j = new JSONObject(response);
+            String s = j.getInt("Dogs") + "";  // "4"
+            textView.setText(s);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }
 ```
@@ -164,14 +168,13 @@ We recommend using Google's stock API. Here's an example of a url that gives you
 http://finance.google.com/finance/info?client=iq&q=aapl
 ```
 
-Try pasting that URL into your web browser to see what the response looks like!
+Try pasting that URL into your web browser to see what the response looks like! The stock price is in the key-value pair who's key is `l` (that's a lowercase L).
 
 **Hint:** You're going to want to take off the `"// "` from the beginning of the response using [substring](https://www.tutorialspoint.com/java/java_string_substring.htm). You can then parse the response into a `JSONArray` and then iterate over it like this:
 
 ```java
-JSONArray json = (JSONArray) new JSONParser().parse(myString);
-JSONObject stock = json.getJSONObject(i);
-// You can now access values in the dictionary using o.get("key")
+JSONArray json = new JSONArray(mySubstring);
+String p = extractPriceFromJSON(json); // You should define this function
 ```
 
 ### Stretch goal
