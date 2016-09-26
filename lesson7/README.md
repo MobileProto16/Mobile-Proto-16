@@ -160,7 +160,7 @@ One more important aspect of Volley: **you don't have to specify for requests to
 
 ## Assignment
 
-Create an application that allows the user to enter in the stock ticket for a company, and display the current price for the company. How you display them is up to you. We have included a simple UI with some boiler plate code that has an `EditText`, a `TextView`, and a button. You can use this as a starting point, or start from scratch.
+Create an application that allows the user to enter in the stock ticket for a company, and display the current price for the company. How you display them is up to you. We have included a simple UI with some boiler plate code that has an `EditText`, a `TextView`, and a button. We've also included some starter code and scaffolding. You can use this as a starting point, or start from scratch. If you choose to use our starter code, make sure you poke around `MainActivityFragment` and understand all of the functions you will have to implement before you begin.
 
 We recommend using Google's stock API. Here's an example of a url that gives you Apple's current prices:
 
