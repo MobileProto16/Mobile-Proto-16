@@ -117,9 +117,7 @@ MySingleton.getInstance(this.getActivity()).addToRequestQueue(stringRequest);
 
 You can also request your data come back in JSON form (which is basically just nested dictionaries and lists, if you are familiar with Python). Volley provides two classes: `JsonObjectRequest` and `JsonArrayRequest` to request objects and arrays ([docs](https://developer.android.com/training/volley/request.html)). These objects are also a lot easier to parse than a String.
 
-Additionally, you can parse Strings into JSONs manually on your own using Google's `JSON.simple` library. Just add `
-compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
-` to your gradle `dependencies`. Let's say your `response` looked something like this:
+You can also just parse the `String` into a `JSON` on your own. That's what we will do in this lesson. Let's say your `response` looked something like this:
 
 ```
 {
