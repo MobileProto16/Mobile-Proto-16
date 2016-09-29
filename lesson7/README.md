@@ -1,17 +1,17 @@
-# APIs
+# Lesson 7 - APIs
 
 ### What's an API anyway?
 An API stands for an application program interface. Think of it as a way for one application to easily communicate with another. For example, maybe you have a blog and want it to show your Twitter feed on the side. In that case, you'd need to use Twitter's API to provide a way for your blog to access Twitter's data. This example is specific to web APIs, but you'll be using a lot of Android APIs in order to make an app (e.g., an API for your app to communicate with the camera). The Android platform has a framework API that apps use to interact with the underlying Android system.
 
 ### Android APIs
-Android has a *ton* of APIs built in; they're useful for using hardware sensors, accessing storage, handling user input, and setting config info.. However, you'll have to be careful with which version of Android you're using as APIs will differ depending on that. The APIs are for using hardware sensors, accessing storage, handling user input, and setting config info.
+Android has a *ton* of APIs built in; they're useful for using hardware sensors, accessing storage, handling user input, and setting configuration info. However, you'll have to be careful with which version of Android you're using as APIs will differ depending on that.
 
 Check the sidebar in [this link](https://developer.android.com/about/versions/marshmallow/android-6.0.html) out to look at the different APIs for versions 4.1 to 6.0. [This link](https://developer.android.com/reference/android/package-summary.html) provides you with a detailed list of every Android-built API available. There are way too many to list so we won't go through them in detail, but if you've seen your phone do it, you'll find how to do it there.
 
 ## HTTP requests
 *Note: this portion was constructed borrowing heavily from [these](https://developer.android.com/training/volley/simple.html) Android docs. Feel free to check them out for more information*
 
-Many websites or companies offer RESTful APIs (application program interfaces) for other developers to use. REST (REpresentational State Transfer) APIs are APIs that allow you to access them using the HTTP verbs you may already be familiar with, such as `GET`, and `POST`. For your future labs and project, you may want to incorporate functionality with Twitter, Spotify, or Instagram, all of which have a REST API available.
+Many websites or companies offer RESTful APIs (application program interfaces) for other developers to use. REST (REpresentational State Transfer) APIs are APIs that allow you to access them using the HTTP verbs you may already be familiar with, such as `GET`, and `POST` (`GET` google.com would give you the google webpage, while something like `POST` google.com/login/yourinfo would send data to google). For your future labs and project, you may want to incorporate functionality with Twitter, Spotify, or Instagram, all of which have a REST API available.
 
 ### Step 1: Dependencies
 
@@ -146,7 +146,7 @@ new Response.Listener<String>() {
 
 #### Threading
 
-**You don't have to worry to much about the contents of the Threading section. However if you want to learn, feel free to read this. Otherwise, go ahead and start the homework.**
+**You don't have to worry too much about the contents of the Threading section. However if you want to learn, feel free to read this. Otherwise, go ahead and start the homework.**
 
 A thread is a single sequence of instructions your computer/phone executes. Your Android application contains a "main thread", which is where all of the code you write gets executed. If one of your lines is really slow, ie, `Thread.sleep(5000);` it will cause your app to hang, as the "main thread" is busy waiting for the `sleep` to end.
 
