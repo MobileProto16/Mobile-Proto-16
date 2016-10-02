@@ -98,7 +98,7 @@ Submit your app [here]()!
 * 15 - Some of the above practices were broken, but you mostly followed good practices.
 * 0 - Good coding practices were consistently broken.
 
-##### Readability: 10 pts
-* 10 - Functions and variables are named well. Code is well commented where appropriate. Confusing lines are commented. Lines are not too long.
-* 5 - Code is occasionally confusing. Could use more comments. Some variables are poorly named.
+##### Readability: 20 pts
+* 20 - Functions and variables are named well. Code is well commented where appropriate. Confusing lines are commented. Lines are not too long.
+* 10 - Code is occasionally confusing. Could use more comments. Some variables are poorly named.
 * 0 - Code is difficult to read. Other developers would not be able to use your code.
