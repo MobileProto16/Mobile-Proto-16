@@ -47,7 +47,7 @@ Before the end of today’s class (Mon Oct 3) each team will turn in a proposal.
 
 ## Lab Rubric(200 points total):
 #### Proposal (10 points)
-* 20 - You did the proposal and a teaching team member checked it off
+* 10 - You did the proposal and a teaching team member checked it off
 * 0 - You did not do the proposal by the end of class
 
 #### Wireframes (30 points)
@@ -55,7 +55,7 @@ Before the end of today’s class (Mon Oct 3) each team will turn in a proposal.
 * 15 - Information flow of your app is not clear from wireframes and/or you did not make an effort to design the aesthetics of your app.
 * 0 - You did not submit your wireframes.
 
-### Final Deliverable (150 points)
+### Final Deliverable (160 points)
 #### Functionality: 70 points
 ##### Completion: 60 points
 * 60 - You implemented all of the required features in the assignment. The assignment is complete
@@ -76,22 +76,22 @@ Before the end of today’s class (Mon Oct 3) each team will turn in a proposal.
 * 10 - Fragment transitions and/or information flow were unintuitive. It is difficult for a user to do what they want with your app.
 * 0 - Your app was intuitive to the point of being unusable.
 
-#### Quality: 50 points
+#### Quality: 70 points
 
-##### Git practices: 20 pts 
+##### Git practices: 25 pts
 
 
-* 20 - Separate branches were used for distinct features, master branch was kept “clean” and functional. Code was peer reviewed with pull requests before being merged.
-* 10 - Not all code was reviewed before being merged. Each branch did not have a distinct purpose/feature.
+* 25 - Separate branches were used for distinct features, master branch was kept “clean” and functional. Code was peer reviewed with pull requests before being merged.
+* 15 - Not all code was reviewed before being merged. Each branch did not have a distinct purpose/feature.
 * 0 - You frequently committed to master. You didn’t use/barely used branches.
 
-##### Good coding practices: 20 pts
+##### Good coding practices: 25 pts
 
-* 20 - Objects are intelligently designed and used where appropriate, inheritance used when appropriate, code is concise, naming conventions followed, proper access modifiers are used, public getters/setters are used instead of public variables, etc.
-* 10 - Some of the above practices were broken, but you mostly followed good practices.
+* 25 - Objects are intelligently designed and used where appropriate, inheritance used when appropriate, code is concise, naming conventions followed, proper access modifiers are used, public getters/setters are used instead of public variables, etc.
+* 15 - Some of the above practices were broken, but you mostly followed good practices.
 * 0 - Good coding practices were consistently broken.
 
-##### Readability: 10 pts
+##### Readability: 20 pts
 * 10 - Functions and variables are named well. Code is well commented where appropriate. Confusing lines are commented. Lines are not too long.
 * 5 - Code is occasionally confusing. Could use more comments. Some variables are poorly named.
 * 0 - Code is difficult to read. Other developers would not be able to use your code.
