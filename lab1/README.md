@@ -4,6 +4,8 @@ Your goal for this lab is to make an app for a restaurant to manage incoming ord
 
 You will have 1.5 weeks to complete this lab. **Lab 1 is due at 6:30pm on Thursday, October 13th.** This lab will be done in groups of either two or three. There should be two groups of three.
 
+[Here](./RUBRIC.md) is the rubric.
+
 ## Proposal
 Before the end of today’s class (Mon Oct 3) each team will turn in a proposal. Include the following information:
 
