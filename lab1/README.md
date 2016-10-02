@@ -24,14 +24,14 @@ Your app should have two “users”, cooks and customers.
 - Customers can view the menu and make orders by selecting one or more menu items, and the quantities of each item (i.e., 2 burgers, 4 pizzas, etc.).
 - Customers should be able to specify their name when placing an order.
 
-Your app’s data should be persistent on your phone. This means you should store everything in either an S3 or SQL database so that menu items/orders/ingredients are saved when you exit the app.
+Your app’s data should be persistent on your phone. This means you should store everything in a database so that menu items/orders/ingredients are saved when you exit the app.
 
 ## Possible Additions (feel free to come up with your own, these are just suggestions)
 
 - Include pictures of menu items (allow a cook to use their phone’s camera to add images of menu items)
 - Customers can customize menu items (Customers can see the ingredients list for menu items, and select certain items to include/not include)
 - Use an external SQL database (so that it syncs across multiple phones)
-- Store your app’s data in [Amazon S3](http://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/s3transferutility.html) or [firebase](https://www.firebase.com/docs/android/quickstart.html). This will make it persistent across phones as well!
+- Store your app’s data in [Amazon S3](http://docs.aws.amazon.com/mobile/sdkforandroid/developerguide/s3transferutility.html) or [Firebase](https://www.firebase.com/docs/android/quickstart.html). This will make it persistent across phones as well!
 - Have a simple login-authentication (prompt cooks/customers for a username, and maybe password. Have a login/add new user feature)
 - Have a login-authetication with an API like [facebook](https://developers.facebook.com/docs/facebook-login/android) or [google](https://developers.google.com/api-client-library/javascript/features/authentication).
 
@@ -51,7 +51,7 @@ Put your proposal in your repository as `Proposal.md`
 ## Deliverables
 We require these three things to be turned in:
 * Your proposal (Mon Oct 3)
-* Wireframes (these can be drawn by hand or done using software) showing what screens/fragments your app will have, and how users will navigate your app. (Thu Oct 7)
+* Wireframes (these can be drawn by hand or done using software) showing what screens/fragments your app will have, and how users will navigate your app. Upload this to your app's repository (Thu Oct 7)
 * Your app (Thu Oct 13)
 
 Submit your app [here]()!
