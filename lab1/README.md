@@ -25,7 +25,7 @@ On Thur Oct 6 you will submit wireframes for your app. These can be drawn by han
 - What the user can do in that screen/what all the buttons/elements on the screen will do.
 - How the user can get to/away from the screen.
 
-Put all of your wireframes + your explanations in a single `.pdf` file and upload it to your repo as `Design.md`.
+Put all of your wireframes + your explanations in a single `.pdf` file and upload it to your repo as `Design.pdf`.
 
 The wireframes are worth 30 points.
 
