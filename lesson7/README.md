@@ -1,5 +1,7 @@
 # Lesson 7 - APIs
 
+**This assignment is due at 6:30pm on Monday, Oct 3**
+
 ### What's an API anyway?
 An API stands for an application program interface. Think of it as a way for one application to easily communicate with another. For example, maybe you have a blog and want it to show your Twitter feed on the side. In that case, you'd need to use Twitter's API to provide a way for your blog to access Twitter's data. This example is specific to web APIs, but you'll be using a lot of Android APIs in order to make an app (e.g., an API for your app to communicate with the camera). The Android platform has a framework API that apps use to interact with the underlying Android system.
 
@@ -157,6 +159,10 @@ Programs run one line at a time. If you have a single expression that is slow, i
 One more important aspect of Volley: **you don't have to specify for requests to be done [asynchronously](http://stackoverflow.com/questions/3393751/what-does-asynchronous-means-in-ajax)!** Volley handles all requests on a separate thread and deals with multi-threading for you, and returns all responses to the main thread. Rather than waiting for a request to execute code, the response listener gets called whenever the API responds. Additionally, you can put several requests in the queue and they will all be made one after another, without waiting for each to respond before making the next request.
 
 ## Assignment
+
+**This assignment is due at 6:30 on Mon, Oct 3**
+
+Submit your assignment [here](https://goo.gl/forms/IAno1BbnCpAvt9fH3).
 
 Create an application that allows the user to enter in the stock ticket for a company, and display the current price for the company. How you display them is up to you. We have included a simple UI with some boiler plate code that has an `EditText`, a `TextView`, and a button. We've also included some starter code and scaffolding. You can use this as a starting point, or start from scratch. If you choose to use our starter code, make sure you poke around `MainActivityFragment` and understand all of the functions you will have to implement before you begin.
 
