@@ -9,7 +9,7 @@
 * 20 - Information flow of your app is not clear from wireframes and/or you did not make an effort to design the aesthetics of your app. Parts of your design explanation were missing.
 * 0 - You did not submit your wireframes.
 
-### Final Deliverable (160 points)
+### Final Deliverable (200 points)
 #### Functionality: 85 points
 ##### Completion: 70 points
 * 70 - You implemented all of the required features in the assignment. The assignment is complete
@@ -30,7 +30,7 @@
 * 5 - Fragment transitions and/or information flow were unintuitive. It is difficult for a user to do what they want with your app.
 * 0 - Your app was unintuitive to the point of being unusable.
 
-#### Quality: 75 points
+#### Quality: 95 points
 
 ##### Git practices: 25 pts
 
