@@ -1,4 +1,4 @@
-# Deep Dive 1 - Testing
+# Deep Dive 1 :ocean: :swimming_woman: - Testing
 Testing your app is important for making sure your app functions as expected. Today we'll specifically be talking about Unit Testing, which is a form of automated testing. As the name implies, unit testing is where you write tests small units of your code. For example, lets say I want to test that the fibonnaci function I wrote actually works. In plain Java it might look like this:
 
 ```
