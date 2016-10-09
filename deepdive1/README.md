@@ -8,7 +8,7 @@ public boolean fibTest(){
     else return true;
 }
 ```
-Since the 6th fibonnaci number is 8, if `fib` is not 8, then my test has failed. In Android, your unit tests will be a little different. Since some things you want to test will be more complex than checking Fibonnaci numbers, you'll probably have to use a testing library/framework specific to Android. Even for `fibTest` you can . More on that later!
+Since the 6th fibonnaci number is 8, if `fib` is not 8, then my test has failed. In Android, your unit tests will be a little different. Since some things you want to test will be more complex than checking Fibonnaci numbers, you'll probably have to use a testing library/framework specific to Android. Even for `fibTest` you can use a libary/framework (a certain library is commonly used for this). More on that later!
 
 ## Why are unit tests important?
 Say you wrote 23 units tests in your code. You then add a new feature, and now suddenly 5 of your unit tests aren't passing anymore. Unit tests are a clear indicator to show how solidly built your code is, and are very helpful for debugging. You can quickly catch errors in your code and lets you verify that the logic is correct. They might seem superfluous, but they're easy to implement and prevent you from backtracking/spending a lot of time trying to figure out where things went wrong.
@@ -71,7 +71,7 @@ changeColorButton1.setOnClickListener(new View.OnClickListener() {
 });
 ```
 
-#### 1. Check build.gradle for dependencies
+### 1. Check build.gradle for dependencies
 Depending on which framework you use, the steps here will be different. For now, let's include these dependencies in our build.gradle:
 
 ```
@@ -85,20 +85,20 @@ dependencies {
 
 [Mockito](http://mockito.org/) is a framework that lets you create mock variables for things that don't always stay the same. For example, your app's `context` might be something you want to mock.
 
-#### 2. Creating a test class
+### 2. Creating a test class
 1. Click on the method or class you want to test. Press Ctrl+Shift+T (⇧⌘T)
 2. Press `Create New Test` in the menu that appears
-3. In the menu that appears, change the Class name to be something that's very descriptive. `SettingsButton1Test`. You'll be writing multiple tests within this class. Save it in `/tests` as this is a local unit test, not an instrumented unit test.
+3. In the menu that appears, change the Class name to be something that's very descriptive. You'll be writing multiple tests within this class. Save it in `/test` as this is a local unit test, not an instrumented unit test.
 
-#### 3. Writing the test
+### 3. Writing the test
 Instead of returning True or False, here we will use `assert` (check [these docs](http://junit.sourceforge.net/javadoc/org/junit/Assert.html) for different `assert` methods). So, for our Fibonnaci example, our test would look like this:
 ```
 public class MyMathActivityTest {
     @Test
     public void fibTest(){
-        int actual = MyMathActivity.fibonnaci(5);
+        int actual = MyMathActivity.fibonnaci(6);
         int expected = 8;
-        assertEquals("The fifth fibonnaci number is 8", expected, actual);
+        assertEquals("The sixth fibonnaci number is 8", expected, actual);
     }
 }
 ```
@@ -119,11 +119,11 @@ assertThat(actual, is(not(equalTo(expected))));
 assertThat("test", anyOf(is("testing"), containsString("est")));
 ```
 
-#### 4. Actually writing the test
+### 4. Actually writing the test
 
 
 
-#### 5. Run your tests
+### 5. Run your tests
 First check to see if your project is synced with Gradle. You can run a single test by right-clicking a test and then selecting `Run`. To test all methods in a class, right click the class/method and select `Run`. To run all tests in a directory, right-click the directory and select `Run tests`.
 
 ## If you wanted to make an instrumented unit test
@@ -153,7 +153,7 @@ android {
 ```
 Create a new test class in `/androidTest`, and make sure `@RunWith(AndroidJUnit4.class)` is before the `public class MyAndroidTest{}`. Now, write your test!
 
-#### [Annotations](http://junit.sourceforge.net/javadoc/org/junit/package-summary.html)
+### [Annotations](http://junit.sourceforge.net/javadoc/org/junit/package-summary.html)
 Anything with a `@` is an annotation (think `@Override`).
 * `@Test`: Goes above method to test
     * `@Test(expected=Exception.class)`: Fails if named exception is not thrown
@@ -172,7 +172,7 @@ public class UnitTestThatRunsTwoTestClasses {}
 ```
 *
 
-#### [Assert](http://junit.sourceforge.net/javadoc/org/junit/Assert.html)
+### [Assert](http://junit.sourceforge.net/javadoc/org/junit/Assert.html)
 
 ## Resources:
 * [Presentation](https://docs.google.com/presentation/d/18Gb8NIR_e-cB_LK4evxB7SrdPyrmlxG0GKL5-qcprnA/edit?usp=sharing) from in-class.
