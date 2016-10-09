@@ -25,6 +25,15 @@ You want your tests to be:
 * **Repeatable and predictable** - The result of your test should be predictable and the test should be repeatable
 * **Independent** - Your tests can run in any order and shouldn't be dependent on other tests
 
+## What are the different overall types of tests?
+* **Unit tests** target small, isolated pieces of code, like functions. A unit test might check that a function with a return statement returns the correct value, or that a function which modifies a list does so correctly.
+* **Integration tests** combine isolated units of code to ensure they work together correctly. An integration test might save a record to a database, then read it back and check that it's unchanged.
+* **End-to-end tests** (also known as **system tests**) simulate user interactions with the app and check that it's working as it should. An end-to-end test might fill out a login form, click "Sign In", and verify that the correct activity has loaded afterwards.
+
+A common philosophy (check out [this blog post](https://testing.googleblog.com/2015/04/just-say-no-to-more-end-to-end-tests.html) from Google) suggests a "testing pyramid": a large base of unit tests, some integration tests, and fewer end-to-end tests. The goal of the "testing pyramid" is to catch a bug with the smallest test possible. For example, an end-to-end test might fail if a function it depends on isn't returning the right value, but it won't give you much information about where the failure is; a unit test for the function will point you towards the failure right away.
+
+(Thanks OlinJS for that wonderfully written section :heart:)
+
 ## [Test-Driven Development (TDD)](https://www.agilealliance.org/glossary/tdd/)
 TDD is an Agile practice where you:
 * Write a unit test for describing how some aspect of the program works
@@ -35,6 +44,8 @@ TDD is an Agile practice where you:
 If you're interested in learning more about the details of TDD, check out [this link](https://www.agilealliance.org/glossary/tdd/). Agile and TDD are commonly used in the tech world, so knowing how to do TDD will give you a leg up in the job market (interviewers are interested to hear that you used TDD in your project).
 
 Since we're talking about good development practices, check out [Continuous Integration](https://www.thoughtworks.com/continuous-integration) as well.
+
+Of course, not everyone is gung-ho about TDD. Check out [this article](http://david.heinemeierhansson.com/2014/tdd-is-dead-long-live-testing.html) about a guy who wants to move away from unit testing towards system testing.
 
 ## What types of tests do I run for Android?
 In Android, there are typically two types of tests:
