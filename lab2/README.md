@@ -12,7 +12,7 @@ We require these two things to be turned in:
 * Your app (Thu Oct 27)
 
 ## MVP
-The only requirement for this lab is that you use two APIs. One API has to be an Android API that interact's with your phone's hardware (see below for examples) while the other one can be either an Android or web API. All other requirements are scoped by your team in your proposal.
+The only requirement for this lab is that you use two APIs. One API has to be an Android API that interacts with your phone's hardware (see below for examples) while the other one can be either an Android or web API. All other requirements are scoped by your team in your proposal.
 
 These are acceptable Android APIs that you can use. Let us know ahead of time if you want to work with a different API.
 
