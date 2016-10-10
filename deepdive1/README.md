@@ -152,6 +152,11 @@ assertThat(cat.getKittens(), hasItem(someKitten))
 assertThat("test", anyOf(is("testing"), containsString("est")));
 ```
 
+`assertThat()` is how Hamcrest basically puts all of JUnit's different version of `assert` together. Using it with Hamcrest matchers, our Fibonacci test will look like this:
+```
+assertThat("The sixth fibonacci number is 8", expected, is(actual)); // can do is(equalTo(actual)) as well
+```
+
 ### 5. Run your tests
 First check to see if your project is synced with Gradle. You can run a single test by right-clicking a test and then selecting `Run`. To test all methods in a class, right click the class/method and select `Run`. To run all tests in a directory, right-click the directory and select `Run tests`.
 
