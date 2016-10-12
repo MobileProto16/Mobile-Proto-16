@@ -1,7 +1,15 @@
 # Deep Dive 1 :ocean: :swimming_woman: - Testing
+## Table of Contents
+* [Why testing?](#1)
+* [How to make local tests](#2)
+* [How to make instrumented tests](#3)
+* [Activity](#4)
+* [Links mentioned in this README.md](#5)
+
+## Introduction
 Testing your app is important for making sure your app functions as expected. Today we'll specifically be talking about Unit Testing, which is a form of automated testing. As the name implies, unit testing is where you write tests small units of your code. For example, lets say I want to test that the fibonacci function I wrote actually works. In plain Java it might look like this:
 
-```
+```java
 public boolean fibTest(){
     int fib = doFibonacci(6);
     if (fib != 8) return false;
@@ -10,7 +18,7 @@ public boolean fibTest(){
 ```
 Since the 6th fibonacci number is 8, if `fib` is not 8, then my test has failed. In Android, your unit tests will be a little different. Since some things you want to test will be more complex than checking Fibonacci numbers, you'll probably have to use a testing library/framework specific to Android. Even for `fibTest` you can use a libary/framework (a certain library is commonly used for this). More on that later!
 
-## Why are unit tests important?
+## Why are unit tests important? <a name="1"/>
 Say you wrote 23 units tests in your code. You then add a new feature, and now suddenly 5 of your unit tests aren't passing anymore. Unit tests are a clear indicator to show how solidly built your code is, and are very helpful for debugging. You can quickly catch errors in your code and lets you verify that the logic is correct. They might seem superfluous, but they're easy to implement and prevent you from backtracking/spending a lot of time trying to figure out where things went wrong.
 
 Testing is something you'll most likely encounter when you get a software job, so learning how to do testing now will give you a leg up in the game.
@@ -68,12 +76,12 @@ There are **tons** of testing frameworks.
 
 ---
 
-## Making your first local test
+## Making your first local test <a name="2"/>
 *Note: This is a condensed version of [this](https://developer.android.com/training/testing/unit-testing/local-unit-tests.html#build).*
 
 Let's say I have a certain class I want to test. For this example, I'll use `MathExamples.java` as my class to test:
 
-```
+```java
 public class MathExamples {
 
     public int fibonacci(int n){
@@ -96,7 +104,7 @@ There's a little mistake in there ;-)
 ### 1. Check build.gradle for dependencies
 Depending on which framework you use, the steps here will be different. For now, let's include these dependencies in our build.gradle:
 
-```
+```java
 dependencies {
     // Required -- JUnit 4 framework
     testCompile 'junit:junit:4.12'
@@ -116,7 +124,7 @@ dependencies {
 
 ### 3. Writing the test
 Instead of returning True or False, here we will use `assert` (check [these docs](http://junit.sourceforge.net/javadoc/org/junit/Assert.html) for different `assert` methods). So, for our Fibonacci example, our test would look like this:
-```
+```java
 public class MathExamplesTest {
     @Test
     public void fibonnaciTest(){
@@ -130,7 +138,7 @@ public class MathExamplesTest {
 
 You can use [Hamcrest matchers](https://github.com/hamcrest/JavaHamcrest) instead. They make your tests more English-like, readable, and make matching easier. For example:
 
-```
+```java
 // JUnit 4 for equals check
 assertEquals(expected, actual);
 // Hamcrest for equals check
@@ -166,11 +174,11 @@ The test should fail because I made a mistake in `fibonacci()` (it returns 2 isn
 
 ---
 
-## Making an instrumented unit test
+## Making an instrumented unit test <a name="3"/>
 If you remember the difference between local and instrumented tests, you'll want to use instrumented tests to test most things about how the app actually works (like testing if clicking a button does something).
 
 Let's start with making a test for Lesson 3's homework. I want to start with making a test for one of the buttons that changes the background color.
-```
+```java
 Button changeColorButton1 = (Button) view.findViewById(R.id.changeColorButton1);
 changeColorButton1.setOnClickListener(new View.OnClickListener() {
     @Override
@@ -184,7 +192,7 @@ changeColorButton1.setOnClickListener(new View.OnClickListener() {
 
 ### 1. Add dependencies
 Add these dependencies to your build.gradle. **Note**: These are *not* the same dependencies you added before for your local tests. One is `testCompile` while the other is `androidTestCompile`.
-```
+```java
 dependencies {
     androidTestCompile 'com.android.support:support-annotations:24.0.0'
     androidTestCompile 'com.android.support.test:runner:0.5'
@@ -200,7 +208,7 @@ dependencies {
 
 *Caution*: If your build configuration includes a compile dependency for the support-annotations library and an androidTestCompile dependency for the espresso-core library, your build might fail due to a dependency conflict. To resolve, update your dependency for espresso-core as follows:
 
-```
+```java
 androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
     exclude group: 'com.android.support', module: 'support-annotations'
 })
@@ -208,7 +216,7 @@ androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
 
 Next, add this to your module-level build.gradle:
 
-```
+```java
 android {
     defaultConfig {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -232,7 +240,7 @@ Here’s an overview of the main components of Espresso:
 
 * ViewAssertions – A collection of `ViewAssertions` that can be passed the `ViewInteraction.check()` method. Most of the time, you will use the matches assertion, which uses a View matcher to assert the state of the currently selected view.
 
-```
+```java
 onView(withId(R.id.my_view))      // withId(R.id.my_view) is a ViewMatcher
     .perform(click())               // click() is a ViewAction
     .check(matches(isDisplayed())); // matches(isDisplayed()) is a ViewAssertion
@@ -241,13 +249,13 @@ onView(withId(R.id.my_view))      // withId(R.id.my_view) is a ViewMatcher
 #### `onView()`
 First step is to grab the view you're testing. You'll need to use the Hamcrest matcher `withId()`.
 
-```
+```java
 onView(withId(R.id.changeColorButton1))
 ```
 
 `R.id` values can be shared between multiple views, so you might get an `AmbiguousViewMatcherException`. There can be a lot of ambiguity, so in order to be more specific about which view you're looking for you could do something like this:
 
-```
+```java
 onView(allOf(withId(R.id.my_view), withText("Specific text only this view has")))
 onView(allOf(withId(R.id.my_view), not(withText("A view that doesn't have this text")) ))
 ```
@@ -257,14 +265,14 @@ onView(allOf(withId(R.id.my_view), not(withText("A view that doesn't have this t
 #### `perform()`
 Next, you can do your `ViewAction` in `perform()`. For my button, I simply want to click it.
 
-```
+```java
 onView(withId(R.id.changeColorButton1))
     .perform(click());
 ```
 
 You can also do multiple actions within perform.
 
-```
+```java
 onView(...)
     .perform(typeText("Hi"), click());
 ```
@@ -274,7 +282,7 @@ onView(...)
 #### `check()`
 Finally, use `check()` to see if your view fulfills your assertion. `matches()` is most the most commonly used assertion here, and uses `ViewMatcher` to assert the state of the current view. [Here is a list](https://developer.android.com/reference/android/support/test/espresso/matcher/ViewMatchers.html) of possible `ViewMatcher`s you can use within `matches()`. Let's use say I have a button that changes the text of a textview. My code could look like this:
 
-```
+```java
 // First, click a button
 onView(withId(R.id.button))
     .perform(click());
@@ -285,7 +293,7 @@ onView(withId(R.id.text))
 
 If I want to check that my background color has changed, then I'll have to write my own matcher (that's if I want to use Espresso. Otherwise, I could just use `assertThat()` where expected is the color I want and actual is something like `myActivity.getBackgroundColor()`). 
 
-```
+```java
 // First, I click a button.
 onView(withId(R.id.changeColorButton1))
     .perform(click());
@@ -297,7 +305,7 @@ onView(withId(R.id.mainLayout))
 
 With my custom matcher method as:
 
-```
+```java
 public static Matcher<View> withBgColor(final int color) {
   return new BoundedMatcher<View>() {
     @Override public boolean matchesSafely(View view) {
@@ -312,7 +320,7 @@ public static Matcher<View> withBgColor(final int color) {
 
 See more examples with `BoundedMatcher` and how to make custom matchers [here](http://www.programcreek.com/java-api-examples/index.php?api=android.support.test.espresso.matcher.BoundedMatcher).
 
-## Quick coding guides and links
+## Quick coding guides and links <a name="5"/>
 
 ### [Annotations](http://junit.sourceforge.net/javadoc/org/junit/package-summary.html)
 Anything with a `@` is an annotation (think `@Override`).
@@ -326,7 +334,7 @@ Anything with a `@` is an annotation (think `@Override`).
 * `@SmallTest`, `@MediumTest`, `@BigTest`: See this link [here](https://testing.googleblog.com/2010/12/test-sizes.html)
 * `@Mock`: Goes above variable to state that it's a mock variable. If you're going to run with a mock variable, make sure to include `@RunWith(MockitoJUnitRunner.class)` above `public class TestClass{}`.
 * Want to group tests together? Try this:
-```
+```java
 @RunWith(Suite.class)
 @Suite.SuiteClasses({MyFirstTestClass.class,
         MySecondTestClass.class})
@@ -354,7 +362,7 @@ public class UnitTestThatRunsTwoTestClasses {}
 * [Monkey](https://developer.android.com/studio/test/monkey.html) and [MonkeyRunner](https://developer.android.com/studio/test/monkeyrunner/index.html) for how to do stress tests (making your tests even more comprehensive).
 * [Examples of Espresso tests](https://google.github.io/android-testing-support-library/samples/)
 
-## Activity
+## Activity <a name="4"/>
 As an in-class activity, **write 3 tests** for the "Intro to Java" lesson. Then, try **writing 3 tests** for any of the Android apps. Dividing tests between assignments is fine. Note that this is a non-graded in-class activity, not homework, so we aren't expecting you to finish and turn it in.
 
 ### Check your understanding
