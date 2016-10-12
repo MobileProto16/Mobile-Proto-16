@@ -66,6 +66,8 @@ There are **tons** of testing frameworks.
 * [Appium](http://appium.io/) - You can test both iOS and Android versions of your app at the same time.
 * And probably many more...
 
+---
+
 ## Making your first local test
 *Note: This is a condensed version of [this](https://developer.android.com/training/testing/unit-testing/local-unit-tests.html#build).*
 
@@ -126,7 +128,7 @@ public class MathExamplesTest {
 }
 ```
 
-You can use [Hamcrest matchers](https://github.com/hamcrest/JavaHamcrest) if you'd like as well. They make your tests more English-like, readable, and make matching easier. For example:
+You can use [Hamcrest matchers](https://github.com/hamcrest/JavaHamcrest) instead. They make your tests more English-like, readable, and make matching easier. For example:
 
 ```
 // JUnit 4 for equals check
@@ -152,7 +154,7 @@ assertThat(cat.getKittens(), hasItem(someKitten))
 assertThat("test", anyOf(is("testing"), containsString("est")));
 ```
 
-`assertThat()` is how Hamcrest basically puts all of JUnit's different version of `assert` together. Using it with Hamcrest matchers, our Fibonacci test will look like this:
+`assertThat()` is how Hamcrest basically puts all of JUnit's different version of `assert` together. Using Hamcrest matchers and `assertThat()`, our Fibonacci test will look like this:
 ```
 assertThat("The sixth fibonacci number is 8", expected, is(actual)); // can do is(equalTo(actual)) as well
 ```
@@ -161,6 +163,8 @@ assertThat("The sixth fibonacci number is 8", expected, is(actual)); // can do i
 First check to see if your project is synced with Gradle. You can run a single test by right-clicking a test and then selecting `Run`. To test all methods in a class, right click the class/method and select `Run`. To run all tests in a directory, right-click the directory and select `Run tests`.
 
 The test should fail because I made a mistake in `fibonacci()` (it returns 2 isntead of 1). Fix that, and your test should pass!
+
+---
 
 ## Making an instrumented unit test
 If you remember the difference between local and instrumented tests, you'll want to use instrumented tests to test most things about how the app actually works (like testing if clicking a button does something).
@@ -230,8 +234,8 @@ Here’s an overview of the main components of Espresso:
 
 ```
 onView(withId(R.id.my_view))      // withId(R.id.my_view) is a ViewMatcher
-  .perform(click())               // click() is a ViewAction
-  .check(matches(isDisplayed())); // matches(isDisplayed()) is a ViewAssertion
+    .perform(click())               // click() is a ViewAction
+    .check(matches(isDisplayed())); // matches(isDisplayed()) is a ViewAssertion
 ```
 
 #### `onView()`
@@ -248,7 +252,7 @@ onView(allOf(withId(R.id.my_view), withText("Specific text only this view has"))
 onView(allOf(withId(R.id.my_view), not(withText("A view that doesn't have this text")) ))
 ```
 
-[See here for the ViewMatchers that are available.](https://android.googlesource.com/platform/frameworks/testing/+/android-support-test/espresso/core/src/main/java/android/support/test/espresso/matcher/ViewMatchers.java).
+[See here for the `ViewMatcher`s available.](https://developer.android.com/reference/android/support/test/espresso/matcher/ViewMatchers.html) [Source code too.](https://android.googlesource.com/platform/frameworks/testing/+/android-support-test/espresso/core/src/main/java/android/support/test/espresso/matcher/ViewMatchers.java)
 
 #### `perform()`
 Next, you can do your `ViewAction` in `perform()`. For my button, I simply want to click it.
@@ -265,7 +269,7 @@ onView(...)
     .perform(typeText("Hi"), click());
 ```
 
-[Look here for different `ViewAction`s you can use.](https://android.googlesource.com/platform/frameworks/testing/+/android-support-test/espresso/core/src/main/java/android/support/test/espresso/action/ViewActions.java)
+[Look here for different `ViewAction`s available.](https://developer.android.com/reference/android/support/test/espresso/action/ViewActions.html) [Source code too.](https://android.googlesource.com/platform/frameworks/testing/+/android-support-test/espresso/core/src/main/java/android/support/test/espresso/action/ViewActions.java)
 
 #### `check()`
 Finally, use `check()` to see if your view fulfills your assertion. `matches()` is most the most commonly used assertion here, and uses `ViewMatcher` to assert the state of the current view. [Here is a list](https://developer.android.com/reference/android/support/test/espresso/matcher/ViewMatchers.html) of possible `ViewMatcher`s you can use within `matches()`. Let's use say I have a button that changes the text of a textview. My code could look like this:
@@ -328,15 +332,27 @@ Anything with a `@` is an annotation (think `@Override`).
         MySecondTestClass.class})
 public class UnitTestThatRunsTwoTestClasses {}
 ```
+* `@Rule`: [How do rules work?](http://stackoverflow.com/questions/13489388/how-does-junit-rule-work) & [Rules in Android.](http://wiebe-elsinga.com/blog/whats-new-in-android-testing/)
 
-### [Assert](http://junit.sourceforge.net/javadoc/org/junit/Assert.html)
-
-### [Hamcrest matchers](http://hamcrest.org/JavaHamcrest/javadoc/1.3/org/hamcrest/Matchers.html) (and a [quick intro](http://www.slideshare.net/shaiyallin/hamcrest-matchers) too)
+### Important resources linked above, for your convenience
+* [TDD](https://www.agilealliance.org/glossary/tdd/) and [Continuous Integration](https://www.thoughtworks.com/continuous-integration)
+* Read through [this](https://developer.android.com/training/testing/unit-testing/index.html) if you're interested in learning more about testing. This README.md is heavily based off of this.
+* [Local unit tests](https://developer.android.com/training/testing/unit-testing/local-unit-tests.html#build)
+* [Mockito](http://mockito.org/)
+* [Assert](http://junit.sourceforge.net/javadoc/org/junit/Assert.html)
+* [Hamcrest matchers](http://hamcrest.org/JavaHamcrest/javadoc/1.3/org/hamcrest/Matchers.html) (and a [quick intro](http://www.slideshare.net/shaiyallin/hamcrest-matchers) too)
+* [Annotations](http://junit.sourceforge.net/javadoc/org/junit/package-summary.html)
+* [Instrumented tests with Espresso](https://google.github.io/android-testing-support-library/docs/espresso/basics/index.html)
+* [ViewMatchers docs](https://developer.android.com/reference/android/support/test/espresso/matcher/ViewMatchers.html)
+    * [ViewMatchers source code](https://android.googlesource.com/platform/frameworks/testing/+/android-support-test/espresso/core/src/main/java/android/support/test/espresso/matcher/ViewMatchers.java) 
+* [ViewActions docs](https://developer.android.com/reference/android/support/test/espresso/action/ViewActions.html)
+    * [ViewActions source code](https://android.googlesource.com/platform/frameworks/testing/+/android-support-test/espresso/core/src/main/java/android/support/test/espresso/action/ViewActions.java)
+* [Make your own matcher (`BoundedMatcher`)](http://www.programcreek.com/java-api-examples/index.php?api=android.support.test.espresso.matcher.BoundedMatcher)
 
 ### Extra resources
 * [Presentation](https://docs.google.com/presentation/d/18Gb8NIR_e-cB_LK4evxB7SrdPyrmlxG0GKL5-qcprnA/edit?usp=sharing) from in-class.
-* Read through [this](https://developer.android.com/training/testing/unit-testing/index.html) if you're interested in learning more about testing. This README.md is heavily based off of this.
 * [Monkey](https://developer.android.com/studio/test/monkey.html) and [MonkeyRunner](https://developer.android.com/studio/test/monkeyrunner/index.html) for how to do stress tests (making your tests even more comprehensive).
+* [Examples of Espresso tests](https://google.github.io/android-testing-support-library/samples/)
 
 ## Activity
 As an in-class activity, **write 3 tests** for the "Intro to Java" lesson. Then, try **writing 3 tests** for any of the Android apps. Dividing tests between assignments is fine. Note that this is a non-graded in-class activity, not homework, so we aren't expecting you to finish and turn it in.
