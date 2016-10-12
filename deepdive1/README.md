@@ -127,7 +127,7 @@ public class MathExamplesTest {
 }
 ```
 
-`@Test` is an annotation. You can read more about annotations [here in EXTRA.md](EXTRA.md) or [here](http://junit.sourceforge.net/javadoc/org/junit/package-summary.html). You can use [Hamcrest matchers](https://github.com/hamcrest/JavaHamcrest) instead. They make your tests more English-like, readable, and make matching easier. For example:
+`@Test` is an annotation. You can read more about annotations [here in EXTRA.md](EXTRA.md) or [here](http://junit.sourceforge.net/javadoc/org/junit/package-summary.html). You can use [Hamcrest matchers](https://github.com/hamcrest/JavaHamcrest) instead of just `assert()`. They make your tests more English-like, readable, and make matching easier. For example:
 
 ```java
 // JUnit 4 for equals check
@@ -166,7 +166,7 @@ The test should fail because I made a mistake in `fibonacci()` (it returns 2 isn
 ---
 <a name="3"/>
 ## Making an instrumented unit test   [↑](#home)
-If you remember the difference between local and instrumented tests, you'll want to use instrumented tests to test most things about how the app actually works (like testing if clicking a button does something).
+If you remember the difference between local and instrumented tests, you'll want to use instrumented tests to test most things about how the app actually works (like testing if clicking a button does something). We'll be using the [Espresso framework](https://google.github.io/android-testing-support-library/docs/espresso/index.html) to write these tests.
 
 Let's start with making a test for Lesson 3's homework. I want to start with making a test for one of the buttons that changes the background color.
 ```java
@@ -221,15 +221,7 @@ Create a new test class in `/androidTest`, and make sure `@RunWith(AndroidJUnit4
 ### 3. Writing a test   [↑](#home)
 *Note: See [here](https://google.github.io/android-testing-support-library/docs/espresso/basics/index.html) for more detail on how to test with Espresso.*
 
-Here’s an overview of the main components of Espresso:
-
-* Espresso – Entry point to interactions with views (via `onView` and `onData`). Also exposes APIs that are not necessarily tied to any view (e.g. `pressBack`).
-
-* ViewMatchers – A collection of objects that implement `Matcher<? super View>` interface. You can pass one or more of these to the `onView` method to locate a view within the current view hierarchy.
-
-* ViewActions – A collection of `ViewActions` that can be passed to the `ViewInteraction.perform()` method (for example, `click()`).
-
-* ViewAssertions – A collection of `ViewAssertions` that can be passed the `ViewInteraction.check()` method. Most of the time, you will use the matches assertion, which uses a View matcher to assert the state of the currently selected view.
+This is what a test in Espresso might look like:
 
 ```java
 onView(withId(R.id.my_view))      // withId(R.id.my_view) is a ViewMatcher
