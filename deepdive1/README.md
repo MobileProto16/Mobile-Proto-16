@@ -1,3 +1,4 @@
+<a name="home"/>
 # Deep Dive 1 :ocean: :swimming_woman: - Testing
 ## Table of Contents
 * [Why testing?](#1)
@@ -6,7 +7,7 @@
 * [Activity](#4)
 * [Links mentioned in this README.md](#5)
 
-## Introduction
+## Introduction   [↑](#home)
 Testing your app is important for making sure your app functions as expected. Today we'll specifically be talking about Unit Testing, which is a form of automated testing. As the name implies, unit testing is where you write tests small units of your code. For example, lets say I want to test that the fibonacci function I wrote actually works. In plain Java it might look like this:
 
 ```java
@@ -17,23 +18,23 @@ public boolean fibTest(){
 }
 ```
 Since the 6th fibonacci number is 8, if `fib` is not 8, then my test has failed. In Android, your unit tests will be a little different. Since some things you want to test will be more complex than checking Fibonacci numbers, you'll probably have to use a testing library/framework specific to Android. Even for `fibTest` you can use a libary/framework (a certain library is commonly used for this). More on that later!
-
-## Why are unit tests important? <a name="1"/>
+<a name="1"/>
+## Why are unit tests important?   [↑](#home)
 Say you wrote 23 units tests in your code. You then add a new feature, and now suddenly 5 of your unit tests aren't passing anymore. Unit tests are a clear indicator to show how solidly built your code is, and are very helpful for debugging. You can quickly catch errors in your code and lets you verify that the logic is correct. They might seem superfluous, but they're easy to implement and prevent you from backtracking/spending a lot of time trying to figure out where things went wrong.
 
 Testing is something you'll most likely encounter when you get a software job, so learning how to do testing now will give you a leg up in the game.
 
-## What are some things I want to test in my code?
+## What are some things I want to test in my code?   [↑](#home)
 Pretty much everything! You can test both backend and frontend components. Generally you'd write a test everytime you write a piece of code that does something. Made a new fragment that should show you 10 pictures? You can write a test for that.
 
-## What are some rules I should follow for writing tests?
+## What are some rules I should follow for writing tests?   [↑](#home)
 You want your tests to be:
 * **Targeted** - You test one thing at a time
 * **Isolated** - The code you're testing should be isolated from the rest of the app's code and any external dependencies or events
 * **Repeatable and predictable** - The result of your test should be predictable and the test should be repeatable
 * **Independent** - Your tests can run in any order and shouldn't be dependent on other tests
 
-## What are the different overall types of tests?
+## What are the different overall types of tests?   [↑](#home)
 * **Unit tests** target small, isolated pieces of code, like functions. A unit test might check that a function with a return statement returns the correct value, or that a function which modifies a list does so correctly.
 * **Integration tests** combine isolated units of code to ensure they work together correctly. An integration test might save a record to a database, then read it back and check that it's unchanged.
 * **End-to-end tests** (also known as **system tests**) simulate user interactions with the app and check that it's working as it should. An end-to-end test might fill out a login form, click "Sign In", and verify that the correct activity has loaded afterwards.
@@ -42,7 +43,7 @@ A common philosophy (check out [this blog post](https://testing.googleblog.com/2
 
 (Thanks OlinJS for that wonderfully written section :heart:)
 
-## [Test-Driven Development (TDD)](https://www.agilealliance.org/glossary/tdd/)
+## [Test-Driven Development (TDD)](https://www.agilealliance.org/glossary/tdd/)   [↑](#home)
 TDD is an Agile practice where you:
 * Write a unit test for describing how some aspect of the program works
 * Run the test (which should fail since the aspect isn't written yet)
@@ -55,14 +56,14 @@ Since we're talking about good development practices, check out [Continuous Inte
 
 Of course, not everyone is gung-ho about TDD. Check out [this article](http://david.heinemeierhansson.com/2014/tdd-is-dead-long-live-testing.html) about a guy who wants to move away from unit testing towards system testing.
 
-## What types of tests do I run for Android?
+## What types of tests do I run for Android?   [↑](#home)
 In Android, there are typically two types of tests:
 
 * **Local tests**: These are unit tests that run on your local machine only. These are good for tests that don't have any dependencies on the Android framework or dependencies that can be filled using mock objects. Basically, if you're writing something that isn't Android specific (like our Fibonacci test above) you'd put them here. These tests should be located under `module-name/src/test/java/`.
 
 * **Instrumented tests**: These are unit tests that run on an Android device. This approach is good for unit tests that use Android dependencies and can't easily be filled with mock objects. These tests should be located under `module-name/src/androidTest/java`. Since instrumented tests are built into an APK separate from your app APK, they need their own `AndroidManifest.xml` file. Gradle will automatically generate this, so it may not initially be visible.
 
-## Testing Frameworks
+## Testing Frameworks   [↑](#home)
 There are **tons** of testing frameworks. 
 * JUnit - Pretty much all the other testing frameworks are built off of this. JUnit is a testing library for Java in general that's widely used.
 * [AndroidJUnitRunner](https://developer.android.com/topic/libraries/testing-support-library/index.html#AndroidJUnitRunner) - JUnit compatible test runner for Android. Made by Google.
@@ -75,8 +76,8 @@ There are **tons** of testing frameworks.
 * And probably many more...
 
 ---
-
-## Making your first local test <a name="2"/>
+<a name="2"/>
+## Making your first local test   [↑](#home)
 *Note: This is a condensed version of [this](https://developer.android.com/training/testing/unit-testing/local-unit-tests.html#build).*
 
 Let's say I have a certain class I want to test. For this example, I'll use `MathExamples.java` as my class to test:
@@ -101,7 +102,7 @@ public class MathExamples {
 
 There's a little mistake in there ;-)
 
-### 1. Check build.gradle for dependencies
+### 1. Check build.gradle for dependencies   [↑](#home)
 Depending on which framework you use, the steps here will be different. For now, let's include these dependencies in our build.gradle:
 
 ```java
@@ -117,12 +118,12 @@ dependencies {
 
 [Mockito](http://mockito.org/) is a framework that lets you create mock variables for things that don't always stay the same. For example, your app's `context` might be something you want to mock.
 
-### 2. Creating a test class
+### 2. Creating a test class   [↑](#home)
 1. Click on the method or class you want to test. Press Ctrl+Shift+T (⇧⌘T)
 2. Press `Create New Test` in the menu that appears
 3. In the menu that appears, change the Class name to be something that's very descriptive. You'll be writing multiple tests within this class. Save it in `/test` as this is a local unit test, not an instrumented unit test.
 
-### 3. Writing the test
+### 3. Writing the test   [↑](#home)
 Instead of returning True or False, here we will use `assert` (check [these docs](http://junit.sourceforge.net/javadoc/org/junit/Assert.html) for different `assert` methods). So, for our Fibonacci example, our test would look like this:
 ```java
 public class MathExamplesTest {
@@ -167,14 +168,14 @@ assertThat("test", anyOf(is("testing"), containsString("est")));
 assertThat("The sixth fibonacci number is 8", expected, is(actual)); // can do is(equalTo(actual)) as well
 ```
 
-### 5. Run your tests
+### 5. Run your tests   [↑](#home)
 First check to see if your project is synced with Gradle. You can run a single test by right-clicking a test and then selecting `Run`. To test all methods in a class, right click the class/method and select `Run`. To run all tests in a directory, right-click the directory and select `Run tests`.
 
 The test should fail because I made a mistake in `fibonacci()` (it returns 2 isntead of 1). Fix that, and your test should pass!
 
 ---
-
-## Making an instrumented unit test <a name="3"/>
+<a name="3"/>
+## Making an instrumented unit test   [↑](#home)
 If you remember the difference between local and instrumented tests, you'll want to use instrumented tests to test most things about how the app actually works (like testing if clicking a button does something).
 
 Let's start with making a test for Lesson 3's homework. I want to start with making a test for one of the buttons that changes the background color.
@@ -190,7 +191,7 @@ changeColorButton1.setOnClickListener(new View.OnClickListener() {
 });
 ```
 
-### 1. Add dependencies
+### 1. Add dependencies   [↑](#home)
 Add these dependencies to your build.gradle. **Note**: These are *not* the same dependencies you added before for your local tests. One is `testCompile` while the other is `androidTestCompile`.
 ```java
 dependencies {
@@ -224,10 +225,10 @@ android {
 }
 ```
 
-### 2. Add a test class
+### 2. Add a test class   [↑](#home)
 Create a new test class in `/androidTest`, and make sure `@RunWith(AndroidJUnit4.class)` is before the `public class MyAndroidTest{}`. This is necessary for writing an instrumented test.
 
-### 3. Writing a test
+### 3. Writing a test   [↑](#home)
 *Note: See [here](https://google.github.io/android-testing-support-library/docs/espresso/basics/index.html) for more detail on how to test with Espresso.*
 
 Here’s an overview of the main components of Espresso:
@@ -246,7 +247,7 @@ onView(withId(R.id.my_view))      // withId(R.id.my_view) is a ViewMatcher
     .check(matches(isDisplayed())); // matches(isDisplayed()) is a ViewAssertion
 ```
 
-#### `onView()`
+#### `onView()`   [↑](#home)
 First step is to grab the view you're testing. You'll need to use the Hamcrest matcher `withId()`.
 
 ```java
@@ -262,7 +263,7 @@ onView(allOf(withId(R.id.my_view), not(withText("A view that doesn't have this t
 
 [See here for the `ViewMatcher`s available.](https://developer.android.com/reference/android/support/test/espresso/matcher/ViewMatchers.html) [Source code too.](https://android.googlesource.com/platform/frameworks/testing/+/android-support-test/espresso/core/src/main/java/android/support/test/espresso/matcher/ViewMatchers.java)
 
-#### `perform()`
+#### `perform()`   [↑](#home)
 Next, you can do your `ViewAction` in `perform()`. For my button, I simply want to click it.
 
 ```java
@@ -279,7 +280,7 @@ onView(...)
 
 [Look here for different `ViewAction`s available.](https://developer.android.com/reference/android/support/test/espresso/action/ViewActions.html) [Source code too.](https://android.googlesource.com/platform/frameworks/testing/+/android-support-test/espresso/core/src/main/java/android/support/test/espresso/action/ViewActions.java)
 
-#### `check()`
+#### `check()`   [↑](#home)
 Finally, use `check()` to see if your view fulfills your assertion. `matches()` is most the most commonly used assertion here, and uses `ViewMatcher` to assert the state of the current view. [Here is a list](https://developer.android.com/reference/android/support/test/espresso/matcher/ViewMatchers.html) of possible `ViewMatcher`s you can use within `matches()`. Let's use say I have a button that changes the text of a textview. My code could look like this:
 
 ```java
@@ -319,8 +320,8 @@ public static Matcher<View> withBgColor(final int color) {
 ```
 
 See more examples with `BoundedMatcher` and how to make custom matchers [here](http://www.programcreek.com/java-api-examples/index.php?api=android.support.test.espresso.matcher.BoundedMatcher).
-
-## Quick coding guides and links <a name="5"/>
+<a name="5"/>
+## Quick coding guides and links   [↑](#home)
 
 ### [Annotations](http://junit.sourceforge.net/javadoc/org/junit/package-summary.html)
 Anything with a `@` is an annotation (think `@Override`).
@@ -362,7 +363,7 @@ public class UnitTestThatRunsTwoTestClasses {}
 * [Monkey](https://developer.android.com/studio/test/monkey.html) and [MonkeyRunner](https://developer.android.com/studio/test/monkeyrunner/index.html) for how to do stress tests (making your tests even more comprehensive).
 * [Examples of Espresso tests](https://google.github.io/android-testing-support-library/samples/)
 
-## Activity <a name="4"/>
+## Activity   [↑](#home)
 As an in-class activity, **write 3 tests** for the "Intro to Java" lesson. Then, try **writing 3 tests** for any of the Android apps. Dividing tests between assignments is fine. Note that this is a non-graded in-class activity, not homework, so we aren't expecting you to finish and turn it in.
 
 ### Check your understanding
