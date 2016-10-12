@@ -179,7 +179,7 @@ changeColorButton1.setOnClickListener(new View.OnClickListener() {
 ```
 
 ### 1. Add dependencies
-Add these dependencies to your top-level build.gradle. **Note**: These are *not* the same dependencies you added before for your local tests. One is `testCompile` while the other is `androidTestCompile`.
+Add these dependencies to your build.gradle. **Note**: These are *not* the same dependencies you added before for your local tests. One is `testCompile` while the other is `androidTestCompile`.
 ```
 dependencies {
     androidTestCompile 'com.android.support:support-annotations:24.0.0'
@@ -216,7 +216,97 @@ android {
 Create a new test class in `/androidTest`, and make sure `@RunWith(AndroidJUnit4.class)` is before the `public class MyAndroidTest{}`. This is necessary for writing an instrumented test.
 
 ### 3. Writing a test
+*Note: See [here](https://google.github.io/android-testing-support-library/docs/espresso/basics/index.html) for more detail on how to test with Espresso.*
 
+Here’s an overview of the main components of Espresso:
+
+* Espresso – Entry point to interactions with views (via `onView` and `onData`). Also exposes APIs that are not necessarily tied to any view (e.g. `pressBack`).
+
+* ViewMatchers – A collection of objects that implement `Matcher<? super View>` interface. You can pass one or more of these to the `onView` method to locate a view within the current view hierarchy.
+
+* ViewActions – A collection of `ViewActions` that can be passed to the `ViewInteraction.perform()` method (for example, `click()`).
+
+* ViewAssertions – A collection of `ViewAssertions` that can be passed the `ViewInteraction.check()` method. Most of the time, you will use the matches assertion, which uses a View matcher to assert the state of the currently selected view.
+
+```
+onView(withId(R.id.my_view))      // withId(R.id.my_view) is a ViewMatcher
+  .perform(click())               // click() is a ViewAction
+  .check(matches(isDisplayed())); // matches(isDisplayed()) is a ViewAssertion
+```
+
+#### `onView()`
+First step is to grab the view you're testing. You'll need to use the Hamcrest matcher `withId()`.
+
+```
+onView(withId(R.id.changeColorButton1))
+```
+
+`R.id` values can be shared between multiple views, so you might get an `AmbiguousViewMatcherException`. There can be a lot of ambiguity, so in order to be more specific about which view you're looking for you could do something like this:
+
+```
+onView(allOf(withId(R.id.my_view), withText("Specific text only this view has")))
+onView(allOf(withId(R.id.my_view), not(withText("A view that doesn't have this text")) ))
+```
+
+[See here for the ViewMatchers that are available.](https://android.googlesource.com/platform/frameworks/testing/+/android-support-test/espresso/core/src/main/java/android/support/test/espresso/matcher/ViewMatchers.java).
+
+#### `perform()`
+Next, you can do your `ViewAction` in `perform()`. For my button, I simply want to click it.
+
+```
+onView(withId(R.id.changeColorButton1))
+    .perform(click());
+```
+
+You can also do multiple actions within perform.
+
+```
+onView(...)
+    .perform(typeText("Hi"), click());
+```
+
+[Look here for different `ViewAction`s you can use.](https://android.googlesource.com/platform/frameworks/testing/+/android-support-test/espresso/core/src/main/java/android/support/test/espresso/action/ViewActions.java)
+
+#### `check()`
+Finally, use `check()` to see if your view fulfills your assertion. `matches()` is most the most commonly used assertion here, and uses `ViewMatcher` to assert the state of the current view. [Here is a list](https://developer.android.com/reference/android/support/test/espresso/matcher/ViewMatchers.html) of possible `ViewMatcher`s you can use within `matches()`. Let's use say I have a button that changes the text of a textview. My code could look like this:
+
+```
+// First, click a button
+onView(withId(R.id.button))
+    .perform(click());
+// Then, check to see if textView has changed
+onView(withId(R.id.text))
+    .check(matches(withText("My new text!")));
+```
+
+If I want to check that my background color has changed, then I'll have to write my own matcher (that's if I want to use Espresso. Otherwise, I could just use `assertThat()` where expected is the color I want and actual is something like `myActivity.getBackgroundColor()`). 
+
+```
+// First, I click a button.
+onView(withId(R.id.changeColorButton1))
+    .perform(click());
+
+// Then, I see if the background of my MainActivity changes
+onView(withId(R.id.mainLayout))
+    .check(matches(withBgColor(Color.RED)));
+```
+
+With my custom matcher method as:
+
+```
+public static Matcher<View> withBgColor(final int color) {
+  return new BoundedMatcher<View>() {
+    @Override public boolean matchesSafely(View view) {
+      return (view.getBackgroundColor() == color);
+    }
+    @Override public void describeTo(Description description) {
+      description.appendText("has colors: " + getHexColor(color));
+    }
+  };
+}
+```
+
+See more examples with `BoundedMatcher` and how to make custom matchers [here](http://www.programcreek.com/java-api-examples/index.php?api=android.support.test.espresso.matcher.BoundedMatcher).
 
 ## Quick coding guides and links
 
