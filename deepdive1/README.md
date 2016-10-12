@@ -6,6 +6,7 @@
 * [How to make instrumented tests](#3)
 * [Activity](#4)
 * [Links mentioned in this README.md](#5)
+* [EXTRA.md](EXTRA.md)
 
 ## Introduction   [↑](#home)
 Testing your app is important for making sure your app functions as expected. Today we'll specifically be talking about Unit Testing, which is a form of automated testing. As the name implies, unit testing is where you write tests small units of your code. For example, lets say I want to test that the fibonacci function I wrote actually works. In plain Java it might look like this:
@@ -22,7 +23,7 @@ Since the 6th fibonacci number is 8, if `fib` is not 8, then my test has failed.
 ## Why are unit tests important?   [↑](#home)
 Say you wrote 23 units tests in your code. You then add a new feature, and now suddenly 5 of your unit tests aren't passing anymore. Unit tests are a clear indicator to show how solidly built your code is, and are very helpful for debugging. You can quickly catch errors in your code and lets you verify that the logic is correct. They might seem superfluous, but they're easy to implement and prevent you from backtracking/spending a lot of time trying to figure out where things went wrong.
 
-Testing is something you'll most likely encounter when you get a software job, so learning how to do testing now will give you a leg up in the game.
+Testing is something you'll probably encounter if you get a software job, so learning how to do testing now will give you a leg up in the game.
 
 ## What are some things I want to test in my code?   [↑](#home)
 Pretty much everything! You can test both backend and frontend components. Generally you'd write a test everytime you write a piece of code that does something. Made a new fragment that should show you 10 pictures? You can write a test for that.
@@ -44,7 +45,7 @@ A common philosophy (check out [this blog post](https://testing.googleblog.com/2
 (Thanks OlinJS for that wonderfully written section :heart:)
 
 ## [Test-Driven Development (TDD)](https://www.agilealliance.org/glossary/tdd/)   [↑](#home)
-TDD is an Agile practice where you:
+TDD is an [Agile](http://agilemethodology.org/) (remember scrum?) practice where you:
 * Write a unit test for describing how some aspect of the program works
 * Run the test (which should fail since the aspect isn't written yet)
 * Write the simplest possible code to make the test pass
@@ -52,7 +53,7 @@ TDD is an Agile practice where you:
 
 If you're interested in learning more about the details of TDD, check out [this link](https://www.agilealliance.org/glossary/tdd/). Agile and TDD are commonly used in the tech world, so knowing how to do TDD will give you a leg up in the job market (interviewers are interested to hear that you used TDD in your project).
 
-Since we're talking about good development practices, check out [Continuous Integration](https://www.thoughtworks.com/continuous-integration) as well.
+Since we're talking about good development practices, check out [Continuous Integration](https://www.thoughtworks.com/continuous-integration) as well. CI is, as the name implies, a system for you to constantly integrate code and automatically run tests.
 
 Of course, not everyone is gung-ho about TDD. Check out [this article](http://david.heinemeierhansson.com/2014/tdd-is-dead-long-live-testing.html) about a guy who wants to move away from unit testing towards system testing.
 
@@ -62,18 +63,6 @@ In Android, there are typically two types of tests:
 * **Local tests**: These are unit tests that run on your local machine only. These are good for tests that don't have any dependencies on the Android framework or dependencies that can be filled using mock objects. Basically, if you're writing something that isn't Android specific (like our Fibonacci test above) you'd put them here. These tests should be located under `module-name/src/test/java/`.
 
 * **Instrumented tests**: These are unit tests that run on an Android device. This approach is good for unit tests that use Android dependencies and can't easily be filled with mock objects. These tests should be located under `module-name/src/androidTest/java`. Since instrumented tests are built into an APK separate from your app APK, they need their own `AndroidManifest.xml` file. Gradle will automatically generate this, so it may not initially be visible.
-
-## Testing Frameworks   [↑](#home)
-There are **tons** of testing frameworks. 
-* JUnit - Pretty much all the other testing frameworks are built off of this. JUnit is a testing library for Java in general that's widely used.
-* [AndroidJUnitRunner](https://developer.android.com/topic/libraries/testing-support-library/index.html#AndroidJUnitRunner) - JUnit compatible test runner for Android. Made by Google.
-* [Espresso](https://developer.android.com/topic/libraries/testing-support-library/index.html#Espresso) - UI testing framework. Good for functional UI testing within an app. Only supports API level 8, 10, => 15. Made by Google.
-* [UI Automator](https://developer.android.com/topic/libraries/testing-support-library/index.html#UIAutomator) - UI testing framework. Good for cross-app functional UI testing. Only supports API levels => 16. Made by Google.
-* [Robolectric](http://robolectric.org/) - Lets you run Android tests directly from inside your IDE instead of in an emulator
-* [Robotium](https://github.com/robotiumtech/robotium) - Similar to [Selenium](https://en.wikipedia.org/wiki/Selenium_(software)) (a testing framework for web), it lets you make robust automatic black-box UI tests.
-* [Calabash](https://github.com/calabash/calabash-android) - It has an English-like syntax that makes it very easy to understand. The tests are described in [Cucumber](https://cucumber.io/) and then converted to Robotium in run time.
-* [Appium](http://appium.io/) - You can test both iOS and Android versions of your app at the same time.
-* And probably many more...
 
 ---
 <a name="2"/>
@@ -125,6 +114,7 @@ dependencies {
 
 ### 3. Writing the test   [↑](#home)
 Instead of returning True or False, here we will use `assert` (check [these docs](http://junit.sourceforge.net/javadoc/org/junit/Assert.html) for different `assert` methods). So, for our Fibonacci example, our test would look like this:
+
 ```java
 public class MathExamplesTest {
     @Test
@@ -137,7 +127,7 @@ public class MathExamplesTest {
 }
 ```
 
-You can use [Hamcrest matchers](https://github.com/hamcrest/JavaHamcrest) instead. They make your tests more English-like, readable, and make matching easier. For example:
+`@Test` is an annotation. You can read more about annotations [here in EXTRA.md](EXTRA.md) or [here](http://junit.sourceforge.net/javadoc/org/junit/package-summary.html). You can use [Hamcrest matchers](https://github.com/hamcrest/JavaHamcrest) instead. They make your tests more English-like, readable, and make matching easier. For example:
 
 ```java
 // JUnit 4 for equals check
@@ -321,27 +311,7 @@ public static Matcher<View> withBgColor(final int color) {
 
 See more examples with `BoundedMatcher` and how to make custom matchers [here](http://www.programcreek.com/java-api-examples/index.php?api=android.support.test.espresso.matcher.BoundedMatcher).
 <a name="5"/>
-## Quick coding guides and links   [↑](#home)
-
-### [Annotations](http://junit.sourceforge.net/javadoc/org/junit/package-summary.html)
-Anything with a `@` is an annotation (think `@Override`).
-* `@Test`: Goes above method to test
-    * `@Test(expected=Exception.class)`: Fails if named exception is not thrown
-    * `@Test(timeout=100)`: Fails if it takes longer than 100 milliseconds
-* `@Before`: Goes above method you want to execute before each test. Usually done to prepare the test environment.
-* `@After`: Similar to `@Before`, but used to cleanup test environment. Can be used to save memory by cleaning up afterwards.
-* `@BeforeClass` and `@AfterClass`: Unlike `@Before` and `@After`, these go before your class and are executed once.
-* `@Ignore("Description why this is ignored")`: Ignores a test method.
-* `@SmallTest`, `@MediumTest`, `@BigTest`: See this link [here](https://testing.googleblog.com/2010/12/test-sizes.html)
-* `@Mock`: Goes above variable to state that it's a mock variable. If you're going to run with a mock variable, make sure to include `@RunWith(MockitoJUnitRunner.class)` above `public class TestClass{}`.
-* Want to group tests together? Try this:
-```java
-@RunWith(Suite.class)
-@Suite.SuiteClasses({MyFirstTestClass.class,
-        MySecondTestClass.class})
-public class UnitTestThatRunsTwoTestClasses {}
-```
-* `@Rule`: [How do rules work?](http://stackoverflow.com/questions/13489388/how-does-junit-rule-work) & [Rules in Android.](http://wiebe-elsinga.com/blog/whats-new-in-android-testing/)
+## Resources   [↑](#home)
 
 ### Important resources linked above, for your convenience
 * [TDD](https://www.agilealliance.org/glossary/tdd/) and [Continuous Integration](https://www.thoughtworks.com/continuous-integration)
@@ -360,11 +330,13 @@ public class UnitTestThatRunsTwoTestClasses {}
 
 ### Extra resources
 * [Presentation](https://docs.google.com/presentation/d/18Gb8NIR_e-cB_LK4evxB7SrdPyrmlxG0GKL5-qcprnA/edit?usp=sharing) from in-class.
+* [EXTRA.md](EXTRA.md)
 * [Monkey](https://developer.android.com/studio/test/monkey.html) and [MonkeyRunner](https://developer.android.com/studio/test/monkeyrunner/index.html) for how to do stress tests (making your tests even more comprehensive).
 * [Examples of Espresso tests](https://google.github.io/android-testing-support-library/samples/)
 
+<a name="4"/>
 ## Activity   [↑](#home)
-As an in-class activity, **write 3 tests** for the "Intro to Java" lesson. Then, try **writing 3 tests** for any of the Android apps. Dividing tests between assignments is fine. Note that this is a non-graded in-class activity, not homework, so we aren't expecting you to finish and turn it in.
+As an in-class activity, **write 3 tests** for the "Intro to Java" lesson. Then, try **writing 3 tests** for any of the Android apps. Dividing tests between assignments is fine. Note that this is a non-graded in-class activity, not homework.
 
 ### Check your understanding
 We hope that at the end of the lesson, you can answer all these questions:
@@ -374,7 +346,13 @@ We hope that at the end of the lesson, you can answer all these questions:
 * Can I write a an Android specific test?
 * What's the difference between local and instrumented tests?
 * How do I use `assert`?
+* How do I use Hamcrest matchers?
+
+#### Advanced understanding
 * What is a mock variable?
+* What is a `@Rule` and how do I use it?
+* How can I write my own matcher?
+* I've looked through [EXTRA.md](EXTRA.md)
 
 ### Finished early?
-First, make sure that you can answer all the questions in the "Check your understanding" section above. Then, try exploring testing frameworks like Robolectric or Robotium and see if you can write a test with them.
+First, make sure that you can answer all the questions in the "Check your understanding" section above. Next try seeing if you can answer the "Advanced understanding" questions, and read through [EXTRA.md](EXTRA.md). Then, try exploring testing frameworks like Robolectric or Robotium and see if you can write a test with them.
