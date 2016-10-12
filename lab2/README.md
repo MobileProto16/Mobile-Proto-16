@@ -52,8 +52,4 @@ Put all of your wireframes + your explanations in a single file and upload it to
 
 The wireframes are worth 35 points.
 
-## Possible Additions (feel free to come up with your own, these are just suggestions)
-
-You can also come up with your own features to add to the app!
-
-Submit your app [here]()!
+## Submit your app [here]()!
