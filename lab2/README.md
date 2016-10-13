@@ -8,7 +8,7 @@ You will have 2 weeks to complete this lab. **Lab 2 is due at 6:30pm on Thursday
 
 ## Deliverables
 We require these two things to be turned in:
-* Your proposal + Wireframes + Design Explanation (Sun Oct 16)
+* Your proposal + Wireframes + Design Explanation (Mon Oct 17)
 * Your app (Thu Oct 27)
 
 ## MVP
@@ -27,7 +27,7 @@ These are acceptable Android APIs that you can use. Let us know ahead of time if
 * [Touch gestures](https://developer.android.com/training/gestures/index.html)
 
 ## Proposal
-Before the end of today’s class (Thur Oct 13) each team will turn in a proposal. Include the following information:
+Include the following information:
 
 * The names of everyone in your group.
 * The two APIs.
@@ -41,7 +41,7 @@ After you've been approved by a teacher, put your proposal in your repository as
 
 ## Wireframes + Design Explanation
 
-On Sun Oct 16 you will submit wireframes for your app. These can be drawn by hand or using software. Your wireframes should show all screens your app will have, and how your users will navigate/use the app. For each screen, write 2-3 sentences explaining:
+On Mon Oct 17 you will submit wireframes for your app. These can be drawn by hand or using software. Your wireframes should show all screens your app will have, and how your users will navigate/use the app. For each screen, write 2-3 sentences explaining:
 
 - The purpose of the screen
 - What the user can do in that screen/what all the buttons/elements on the screen will do.
