@@ -263,7 +263,7 @@ onView(...)
 [Look here for different `ViewAction`s available.](https://developer.android.com/reference/android/support/test/espresso/action/ViewActions.html) [Source code too.](https://android.googlesource.com/platform/frameworks/testing/+/android-support-test/espresso/core/src/main/java/android/support/test/espresso/action/ViewActions.java)
 
 #### `check()`   [↑](#home)
-Finally, use `check()` to see if your view fulfills your assertion. `matches()` is most the most commonly used assertion here, and uses `ViewMatcher` to assert the state of the current view. [Here is a list](https://developer.android.com/reference/android/support/test/espresso/matcher/ViewMatchers.html) of possible `ViewMatcher`s you can use within `matches()`. Let's use say I have a button that changes the text of a textview. My code could look like this:
+Finally, use `check()` to see if your view fulfills your `ViewAssertion`. `matches()` is most the most commonly used assertion here. Let's use say I have a button that changes the text of a textview. My code could look like this:
 
 ```java
 // First, click a button
@@ -273,6 +273,10 @@ onView(withId(R.id.button))
 onView(withId(R.id.text))
     .check(matches(withText("My new text!")));
 ```
+
+[Look here for different `ViewAssertion`s available.](https://developer.android.com/reference/android/support/test/espresso/assertion/ViewAssertions.html)
+
+### Result
 
 If I want to check that my background color has changed, then I'll have to write my own matcher (that's if I want to use Espresso. Otherwise, I could just use `assertThat()` where expected is the color I want and actual is something like `myActivity.getBackgroundColor()`). 
 
@@ -290,18 +294,21 @@ With my custom matcher method as:
 
 ```java
 public static Matcher<View> withBgColor(final int color) {
-  return new BoundedMatcher<View>() {
+  return new TypeSafeMatcher<View>() {
     @Override public boolean matchesSafely(View view) {
-      return (view.getBackgroundColor() == color);
+      return (((ColorDrawable)view.getBackground()).getColor() == color);
     }
     @Override public void describeTo(Description description) {
-      description.appendText("has colors: " + getHexColor(color));
+      description.appendText("has colors: " + color);
     }
   };
 }
 ```
 
-See more examples with `BoundedMatcher` and how to make custom matchers [here](http://www.programcreek.com/java-api-examples/index.php?api=android.support.test.espresso.matcher.BoundedMatcher).
+You can use `BoundedMatcher` instead if you're testing something within a `View`. See examples with `BoundedMatcher` and how to make custom matchers [here](http://www.programcreek.com/java-api-examples/index.php?api=android.support.test.espresso.matcher.BoundedMatcher).
+
+### [Espresso cheat sheet](https://google.github.io/android-testing-support-library/docs/espresso/cheatsheet/)
+
 <a name="5"/>
 ## Resources   [↑](#home)
 
@@ -314,10 +321,12 @@ See more examples with `BoundedMatcher` and how to make custom matchers [here](h
 * [Hamcrest matchers](http://hamcrest.org/JavaHamcrest/javadoc/1.3/org/hamcrest/Matchers.html) (and a [quick intro](http://www.slideshare.net/shaiyallin/hamcrest-matchers) too)
 * [Annotations](http://junit.sourceforge.net/javadoc/org/junit/package-summary.html)
 * [Instrumented tests with Espresso](https://google.github.io/android-testing-support-library/docs/espresso/basics/index.html)
+* [Espresso cheat sheet](https://google.github.io/android-testing-support-library/docs/espresso/cheatsheet/)
 * [ViewMatchers docs](https://developer.android.com/reference/android/support/test/espresso/matcher/ViewMatchers.html)
     * [ViewMatchers source code](https://android.googlesource.com/platform/frameworks/testing/+/android-support-test/espresso/core/src/main/java/android/support/test/espresso/matcher/ViewMatchers.java) 
 * [ViewActions docs](https://developer.android.com/reference/android/support/test/espresso/action/ViewActions.html)
     * [ViewActions source code](https://android.googlesource.com/platform/frameworks/testing/+/android-support-test/espresso/core/src/main/java/android/support/test/espresso/action/ViewActions.java)
+* [ViewAssertions docs](https://developer.android.com/reference/android/support/test/espresso/assertion/ViewAssertions.html)
 * [Make your own matcher (`BoundedMatcher`)](http://www.programcreek.com/java-api-examples/index.php?api=android.support.test.espresso.matcher.BoundedMatcher)
 
 ### Extra resources
