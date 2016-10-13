@@ -34,11 +34,10 @@ Before the end of today’s class (Thur Oct 13) each team will turn in a proposa
 * The feature(s) you plan on implementing as:
   * MVP
   * Stretch goals
-* The name of the git repo `username/RepoNamo` you will be using (you should make a new one).
 * A quick write up on how you plan to divide up work and integrate features.
 * Where you plan to be in a week (Thur Oct 20). We will be doing informal check-ins to monitor your progress.
 
-After you've been approved by a teacher, put your proposal in your repository as `Proposal.md` and fill out this survey
+After you've been approved by a teacher, put your proposal in your repository as `Proposal.md` and fill out [this survey](https://goo.gl/forms/bmjmlZdtBSrP9dkj1)
 
 ## Wireframes + Design Explanation
 
