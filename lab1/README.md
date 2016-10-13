@@ -66,4 +66,4 @@ We require these three things to be turned in:
 * Wireframes + Design Explanation (Thu Oct 7)
 * Your app (Thu Oct 13)
 
-Submit your app [here]()!
+Submit your app [here](https://goo.gl/forms/PpFxYt0GFXzes5LV2)!
