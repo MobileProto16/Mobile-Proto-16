@@ -2,7 +2,7 @@
 
 Your goal for this lab is to make an app that uses two APIs, where one of them has to be an Android API. 
 
-You will have 2 weeks to complete this lab. **Lab 2 is due at 6:30pm on Thursday, October 27th.** This lab will be done in groups of either two or three. There should be two groups of three. You should work with new people on this lab.
+You will have 2 weeks to complete this lab. **Lab 2 is due at 6:30pm on Thursday, October 27th.** This lab will be done in **groups of three**. You should work with new people on this lab.
 
 [Here](./RUBRIC.md) is the rubric.
 
