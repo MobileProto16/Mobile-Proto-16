@@ -1,6 +1,6 @@
 # Final Project :tada: :ok_woman:
 
-##[Project rubric](TBD) [TBD]
+Here is [final project rubric](TBD) [TBD]
 
 ## Deliverables
 
@@ -29,7 +29,7 @@ A class diagram looks like this:
 
 ![](http://edn.embarcadero.com/article/images/31863/classdiagramno3d.gif)
 
-Define all the classes and fragments you will be creating and draw out class diagrams for all the major classes. Whenever there are communication between classes, make those connections between class diagrams. [Here](http://edn.embarcadero.com/article/31863#classdiagrams) is more info on how to do that. 
+Define all the classes and fragments you will be creating and draw out class diagrams for all the major classes. For each class, list all the variables as well as methods available within it. Whenever there is communication between classes, draw those connections between class diagrams. [Here](http://edn.embarcadero.com/article/31863#classdiagrams) is more info on how to make class diagrams. 
 
 #### Design Writeup 
 
@@ -42,13 +42,13 @@ Your wireframes should show all screens your app will have, and how your users w
 **Put class diagrams + wireframes + your explanations in a single file and upload it to your repo as `Design.`.**
 
 ### Sprint Reviews
-#### [Sprint review rubric](TBD)
+Here is the [sprint review rubric](TBD) [TBD]
 
 The final project will be conducted in a series of three two-week sprints. At the end of each sprint, you will have a formal sprint review. The following are the dates for the sprint reviews:
 
 * Thursday, November 10th
 * Thursday, November 24th
-* During Final Period
+* During Final Events Period
 
 During these reviews, you will:
 
@@ -57,20 +57,20 @@ During these reviews, you will:
 * Ask questions about how to improve your project or about sticking points you are having
 * Potentially live-demo your app
 
-With an accompanying slide-show.
+with an accompanying slide-show.
 
 ### Daily Standups
-In order to monitor progress, we’ll be having a class-wide “standup” at the start of every class. This means that at 6:40, everyone will a) standup b) take up to 2-minutes to describe what they’ve completed since last class and c) ask questions to the teaching team/your peers (if you have any).
+In order to monitor progress, we’ll be having a class-wide “standup” at the start of every class. This means that at 6:40 pm, everyone will a) standup b) take up to 2-minutes to describe what they’ve completed since last class and c) ask questions to the teaching team/your peers (if you have any). d) offer thoughts/suggestions to your peers
 
 ### Final Deliverable
 #### Code freeze
 You will choose a code freeze during finals week. This means that you should stop working on your code and start working on the other final deliverables. After your code freeze, you shouldn’t write any more code.
 
 #### Submission
-*Note: more details to come*. As final deliverables, we require you to turn in via [this survey]():
+*Note: more details to come*. As final deliverables, we require you to turn in via [this survey]() [TBD]:
 * Your final app
 * A detailed write-up explaining how you completed your learning goals.
 * A reflection on what you’ve learned and completed over the semester and final project
 
 #### Demo day! :sparkles:
-Demo day will be [TBD]. Be prepared! :ghost: :rip: :skull:
+Demo day will be [TBD]. Be prepared! :ghost: :skull:
