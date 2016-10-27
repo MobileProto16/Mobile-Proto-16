@@ -51,4 +51,6 @@ Put all of your wireframes + your explanations in a single file and upload it to
 
 The wireframes are worth 35 points.
 
-## Submit your app [here]()!
+## Submit your app [here](https://goo.gl/forms/p5hoeJgrQ2rlQuPl1)!
+
+## Have each team member submit [this](https://goo.gl/forms/tf2QwcYn7RRBsySy2) survey.
