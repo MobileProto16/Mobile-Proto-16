@@ -28,4 +28,4 @@ The goal for the next sprint was clearly articulated, and the team put the sprin
 
 
 ## Communication (10 points)
-The presentation was structured well and the ideas were clearly presented. A feedback form link was included at the beginning of the presentation. The presentation was within 10 minutes.
+The presentation was structured well and the ideas were clearly presented. A feedback form link was included at the beginning of the presentation.
