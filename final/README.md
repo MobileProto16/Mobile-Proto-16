@@ -1,6 +1,6 @@
 # Final Project :tada: :ok_woman:
 
-Here is [final project rubric](TBD) [TBD]
+Here is [final project rubric](final_project_rubric.md)!
 
 ## Deliverables
 
