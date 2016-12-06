@@ -1,7 +1,10 @@
-# Learning Goals Rubric (100 points)
-Your learning goals will be graded by yourself.
-## Goal 1: 30 points
-## Goal 2: 30 points
-## Goal 3: 30 points
-## Free Points: 10 points
-Give yourself an extra 10 points because diving by 3 is hard.
+# Learning Goals Rubric
+Your learning goals will be graded by yourself. Each goal is out of 30 points. If you prefer to give yourself a letter grade instead (or some other reasonable grading scale), then go ahead!
+
+Here is a proposed grading scale that you can follow if it's helpful:
+* 30 - I fulfilled this goal completely.
+* 20 - I partially completed this goal or did not put in as much effort towards it that I could have.
+* 10 - I put in minimal effort towards this goal.
+* 0 - I made no effort towards this goal.
+
+Submit them [here]()!
