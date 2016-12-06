@@ -42,7 +42,7 @@ Your wireframes should show all screens your app will have, and how your users w
 **Put class diagrams + wireframes + your explanations in a single file and upload it to your repo as `Design.`.**
 
 ### Sprint Reviews
-Here is the [sprint review rubric](./sprint_review_rubric.md)
+Here is the [sprint review rubric](./Rubric Breakdowns/sprint_review_rubric.md)
 
 The final project will be conducted in a series of three two-week sprints. At the end of each sprint, you will have a formal sprint review. The following are the dates for the sprint reviews:
 
