@@ -1,4 +1,4 @@
-# Mobile Prototyping Fall 2016
+# [Mobile Prototyping Fall 2016](https://MobileProto16.github.io)
 
 Welcome to Mobile Proto! This is where we will be posting all relevant course materials in this repository.
 
