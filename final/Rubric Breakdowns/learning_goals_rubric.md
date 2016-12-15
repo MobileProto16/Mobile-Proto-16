@@ -7,4 +7,4 @@ Here is a proposed grading scale that you can follow if it's helpful:
 * 10 - I put in minimal effort towards this goal.
 * 0 - I made no effort towards this goal.
 
-Submit them [here]()!
+Submit them [here](https://goo.gl/forms/AqWv8vSUCk9ewx9T2)!
