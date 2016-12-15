@@ -48,7 +48,7 @@ The final project will be conducted in a series of three two-week sprints. At th
 
 * Thursday, November 10th
 * Thursday, November 24th
-* During Final Events Period
+* EXPO Day
 
 During these reviews, you will:
 
@@ -67,10 +67,10 @@ In order to monitor progress, we’ll be having a class-wide “standup” at th
 You will choose a code freeze during finals week. This means that you should stop working on your code and start working on the other final deliverables. After your code freeze, you shouldn’t write any more code.
 
 #### Submission
-*Note: more details to come*. As final deliverables, we require you to turn in via [this survey]() [TBD]:
+*Note: more details to come*. As final deliverables, we require you to turn in via [this survey](https://goo.gl/forms/5Aw5kGKGxK1lTyaG2):
 * Your final app
 * A detailed write-up explaining how you completed your learning goals.
 * A reflection on what you’ve learned and completed over the semester and final project
 
 #### Demo day! :sparkles:
-Demo day will be [TBD]. Be prepared! :ghost: :skull:
+Demo day will be Monday, Dec 19.
