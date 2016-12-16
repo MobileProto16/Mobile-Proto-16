@@ -22,7 +22,7 @@
 * 0 - Your app has multiple bugs, frequently causing unexpected behavior.
 
 
-### Design/Usability: 40 points
+#### Design/Usability: 40 points
 * 40 - Fragments are designed well, it is intuitive how to interact with the app.  User-facing strings are descriptive. The app is for the most part aesthetically appealing.
 * 30 - A small part of the app was unintuitive to interact with or it was a bit ugly.
 * 20 - Fragment transitions and/or information flow were unintuitive. It is difficult for a user to do what they want with your app.
